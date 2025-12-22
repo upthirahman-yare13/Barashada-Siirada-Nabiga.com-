@@ -160,3 +160,58 @@
 </body>
 </html>    
 
+<script>
+    // Ku dar xogtan qaybta 'const content' ee hore
+    content[5] = { 
+        title: "Lesson 5: Introduction to AI", 
+        doc: "Artificial Intelligence (AI) waa nidaamka kombiyuutarku ku dayanayo garaadka bini'aadanka. Waxaan baran doonaa Prompt Engineering.", 
+        vid: "https://github.com/user-attachments/assets/a090ac1f-540e-4e41-b274-eedeb099d1ce", 
+        task: "Isticmaal ChatGPT si aad u qorto code HTML ah.", 
+        practice: "Baro sida loo weydiiyo su'aalaha saxda ah AI-ga." 
+    };
+    content[6] = { 
+        title: "Lesson 6: AI for Web Design", 
+        doc: "Casharkaan waxaad ku baranaysaa sida AI loogu dhisidda website-yo qurxoon iyo isticmaalka qalabka sida v0.dev.", 
+        vid: "https://github.com/user-attachments/assets/a090ac1f-540e-4e41-b274-eedeb099d1ce", 
+        task: "Samee design website adoo isticmaalaya AI tools.", 
+        practice: "Dhis interface website oo dhamaystiran." 
+    };
+
+    // QAYBTA ABOUT ME (Ku dar dhamaadka Dashboard-ka)
+    function showAboutMe() {
+        const view = document.getElementById('main-view');
+        view.innerHTML = `
+            <div class="max-w-3xl mx-auto py-12 animate-content">
+                <div class="bg-white p-10 rounded-[3rem] shadow-2xl border-t-8 border-blue-600">
+                    <div class="text-center mb-8">
+                        <div class="w-32 h-32 bg-blue-100 rounded-full mx-auto mb-4 flex items-center justify-center border-4 border-white shadow-lg text-4xl text-blue-600">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h2 class="text-3xl font-black text-slate-800">ENG ABDIRAHMAN ABDIRIZAQ</h2>
+                        <p class="text-blue-600 font-bold uppercase tracking-widest text-xs">Founder & Lead Instructor</p>
+                    </div>
+                    
+                    <div class="space-y-6 text-slate-600 leading-relaxed">
+                        <p class="text-center italic font-medium">"Hadafkaygu waa inaan dhalinyarada Soomaaliyeed u fududeeyo barashada IT-ga casriga ah iyo Web Development-ka."</p>
+                        
+                        <div class="grid grid-cols-2 gap-4 pt-6">
+                            <div class="bg-slate-50 p-4 rounded-2xl text-center border">
+                                <h5 class="font-black text-slate-800">5+ Years</h5>
+                                <p class="text-[10px] uppercase">Experience</p>
+                            </div>
+                            <div class="bg-slate-50 p-4 rounded-2xl text-center border">
+                                <h5 class="font-black text-slate-800">1000+</h5>
+                                <p class="text-[10px] uppercase">Students</p>
+                            </div>
+                        </div>
+
+                        <div class="pt-6 border-t flex justify-center gap-6 text-xl text-slate-400">
+                            <a href="https://tiktok.com/@updyrhmn13" class="hover:text-black"><i class="fab fa-tiktok"></i></a>
+                            <a href="https://wa.me/252613040087" class="hover:text-green-500"><i class="fab fa-whatsapp"></i></a>
+                            <i class="fas fa-envelope hover:text-red-500 cursor-pointer"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>`;
+    }
+</script>
