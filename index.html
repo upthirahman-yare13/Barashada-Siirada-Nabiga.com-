@@ -3,166 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Legend Building - Affiliate Hub</title>
+    <title>Ganacsi Online - Fursad Dahabi Ah</title>
     <style>
         :root {
-            --primary-color: #1a73e8;
-            --success-color: #28a745;
-            --dark-bg: #0f172a;
+            --primary: #00ff88;
+            --dark: #0f172a;
+            --text: #ffffff;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark);
+            color: var(--text);
             margin: 0;
-            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: #fff;
+            background-image: radial-gradient(circle at top right, #1e293b, #0f172a);
         }
 
-        .container {
+        .marketing-card {
             width: 90%;
-            max-width: 450px;
-            perspective: 1000px;
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
+            max-width: 400px;
+            background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
-            padding: 30px;
+            border-radius: 30px;
+            padding: 40px 20px;
             text-align: center;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-            transition: transform 0.5s ease;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(15px);
         }
 
-        .card:hover {
-            transform: translateY(-10px);
-        }
-
-        .badge {
-            background: rgba(40, 167, 69, 0.2);
-            color: #2ecc71;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: bold;
+        .profit-badge {
+            background: rgba(0, 255, 136, 0.1);
+            color: var(--primary);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
             display: inline-block;
-            margin-bottom: 15px;
         }
 
-        h1 {
-            font-size: 24px;
-            margin: 10px 0;
-            background: linear-gradient(to right, #fff, #94a3b8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+        h1 { font-size: 28px; margin: 15px 0; font-weight: 700; }
+        p { color: #94a3b8; font-size: 16px; line-height: 1.6; margin-bottom: 30px; }
 
-        .image-container {
-            width: 100%;
-            height: 200px;
-            background: #1e293b;
-            border-radius: 16px;
-            margin: 20px 0;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: opacity 0.5s ease;
-        }
-
-        p {
-            color: #94a3b8;
-            line-height: 1.6;
-            margin-bottom: 25px;
-        }
-
-        .btn {
-            display: block;
-            background: linear-gradient(45deg, #10b981, #059669);
-            color: white;
-            padding: 15px;
+        .cta-button {
+            background: var(--primary);
+            color: #000;
             text-decoration: none;
-            border-radius: 12px;
-            font-weight: bold;
+            padding: 18px 30px;
+            border-radius: 15px;
+            font-weight: 800;
+            display: block;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+            box-shadow: 0 10px 20px rgba(0, 255, 136, 0.2);
+            font-size: 18px;
         }
 
-        .btn:hover {
-            transform: scale(1.02);
-            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 255, 136, 0.4);
         }
 
-        .footer-text {
-            font-size: 11px;
+        .trust-icons {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
             color: #475569;
-            margin-top: 20px;
+            font-size: 12px;
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <div class="card">
-        <div class="badge">LIVE OPPORTUNITY</div>
-        <h1 id="title">Soo dhowaaw</h1>
-        
-        <div class="image-container">
-            <img id="image" src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?q=80&w=500&auto=format&fit=crop" alt="Marketing">
-        </div>
+<div class="marketing-card">
+    <div class="profit-badge">100% WORKING STRATEGY</div>
+    <h1 id="main-title">Baro Sida Dollar Loogu Sameeyo Online</h1>
+    <p id="sub-text">Ha lumin waqtigaaga, bilow maanta oo dhis mustaqbal dhaqaale oo sugan. Waxaan ku barayaa Legend Building iyo Affiliate Marketing.</p>
+    
+    <a href="https://wa.me/252613040087?text=Asc%20walaal%20waxaan%20rabay%20inaa%20wax%20ka%20baarto%20fursada%20ganacsi" class="cta-button">
+        Nala Soo Xiriir (WhatsApp)
+    </a>
 
-        <p id="description">Isbedelka noloshaadu halkan ayuu ka bilaabmaa.</p>
-        
-        <a id="link" href="#" class="btn" target="_blank">Hadda bilow →</a>
-        
-        <div class="footer-text">Qayb ka mid ah barnaamijka Legend Building</div>
+    <div class="trust-icons">
+        <span>Verified Business</span> • <span>24/7 Support</span>
     </div>
 </div>
 
 <script>
-    // Liiska xogta (Halkan ku dar Link-yadaada rasmiga ah)
-    const offers = [
+    // Marketing Automatic Update
+    const messages = [
         {
-            title: "Legend Building Mentorship",
-            description: "Baro xirfadda Affiliate Marketing oo dollar ku hel gurigaaga adoo jooga.",
-            image: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?q=80&w=500&auto=format&fit=crop", 
-            link: "https://tusaale.com/legend"
+            title: "Dakhli Joogto Ah",
+            text: "Ma rabtaa inaad gurigaaga fariisato adoo dollar helaya? Legend Building waa furaha."
         },
         {
-            title: "Dhis Ganacsi Online ah",
-            description: "Ha sugin shaqo, abuuro fursad kuu gaar ah oo mustaqbal leh.",
-            image: "https://images.unsplash.com/photo-1553729459-efe14ef6055d?q=80&w=500&auto=format&fit=crop",
-            link: "https://tusaale.com/business"
-        },
-        {
-            title: "High Ticket Profits",
-            description: "Sidee loo iibiyaa alaabta qaaliga ah si aad u hesho dakhli badan.",
-            image: "https://images.unsplash.com/photo-1611974714851-482061329731?q=80&w=500&auto=format&fit=crop",
-            link: "https://tusaale.com/high-ticket"
+            title: "Baro Affiliate Marketing",
+            text: "Xirfadda ugu mushaharka badan sanadka 2025. Nagala soo xiriir WhatsApp si aad u bilaawdo."
         }
     ];
 
-    function updateContent() {
-        const randomItem = offers[Math.floor(Math.random() * offers.length)];
+    let i = 0;
+    setInterval(() => {
+        const titleTag = document.getElementById('main-title');
+        const textTag = document.getElementById('sub-text');
         
-        document.getElementById('title').innerText = randomItem.title;
-        document.getElementById('description').innerText = randomItem.description;
-        document.getElementById('image').src = randomItem.image;
-        document.getElementById('link').href = randomItem.link;
-    }
-
-    // Waxay isbedeleysaa mar kasta oo bogga la refresh gareeyo
-    window.onload = updateContent;
+        titleTag.style.opacity = 0;
+        textTag.style.opacity = 0;
+        
+        setTimeout(() => {
+            titleTag.innerText = messages[i].title;
+            textTag.innerText = messages[i].text;
+            titleTag.style.opacity = 1;
+            textTag.style.opacity = 1;
+            i = (i + 1) % messages.length;
+        }, 500);
+    }, 5000);
 </script>
 
 </body>
