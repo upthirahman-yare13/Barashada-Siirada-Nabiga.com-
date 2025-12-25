@@ -3,152 +3,170 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aman-Yare English Mastery | Professional</title>
+    <title>Aman-Yare English Academy | Final Level</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #0b0f19; color: #f8fafc; font-family: 'Inter', sans-serif; }
-        .glass { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
-        .btn-tab.active { background-color: #10b981; color: white; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3); }
-        .correct { background: #10b981 !important; border-color: white !important; }
-        .incorrect { background: #ef4444 !important; border-color: white !important; }
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap');
+        body { background-color: #050810; color: #e2e8f0; font-family: 'Space Grotesk', sans-serif; }
+        .glass-ui { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.05); }
+        .tab-active { background: linear-gradient(to right, #10b981, #3b82f6); color: white; transform: translateY(-2px); }
+        .option-card { transition: all 0.2s ease; border: 1px solid rgba(255,255,255,0.1); }
+        .option-card:hover { border-color: #3b82f6; background: rgba(59, 130, 246, 0.1); }
+        .correct { background: #10b981 !important; border-color: white !important; color: white; }
+        .incorrect { background: #ef4444 !important; border-color: white !important; color: white; }
+        #certificate { display: none; background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); border: 10px double #10b981; }
     </style>
 </head>
-<body class="p-4">
+<body class="p-4 md:p-8">
 
-<div class="max-w-2xl mx-auto">
-    <div class="flex justify-between items-center p-4 mb-6 bg-emerald-500/10 border border-emerald-500/20 rounded-2xl">
-        <p class="text-sm font-bold text-emerald-400">🚀 Assignment-ka u dir:</p>
-        <a href="https://wa.me/252613040087" class="text-emerald-400 font-bold underline">+252 613040087</a>
-    </div>
-
-    <div class="text-center mb-8">
-        <h1 class="text-3xl font-extrabold text-emerald-500">Aman-Yare English Mastery</h1>
-        <p class="text-slate-400 text-sm">Baro wixii kaaga lumay sanadihii jaamacadda iyo dugsiga! 🇸🇴✨</p>
-    </div>
-
-    <div class="flex gap-2 mb-6">
-        <button onclick="openTab('lesson')" id="t-lesson" class="btn-tab active flex-1 py-3 rounded-xl font-bold glass">📖 Lesson</button>
-        <button onclick="openTab('video')" id="t-video" class="btn-tab flex-1 py-3 rounded-xl font-bold glass">🎥 Video</button>
-        <button onclick="openTab('quiz')" id="t-quiz" class="btn-tab flex-1 py-3 rounded-xl font-bold glass">✍️ Practice</button>
-    </div>
-
-    <div id="lesson-page" class="tab-content space-y-4">
-        <div class="glass p-6 rounded-2xl border-l-4 border-emerald-500">
-            <h3 class="text-xl font-bold text-emerald-400 mb-2">1. Present Simple (Joogtada)</h3>
-            <p class="text-slate-300">Isticmaal ficilka oo leh <b>-s</b> ama <b>-es</b> haddii uu mawduucu yahay <b>He, She, It</b>.</p>
-            <p class="mt-2 text-sm italic text-slate-400">Tusaale: She <b>goes</b> to the market every day.</p>
+<div class="max-w-3xl mx-auto">
+    <div class="flex justify-between items-center glass-ui p-4 rounded-2xl mb-8 border-b-2 border-b-emerald-500">
+        <div class="flex items-center gap-2">
+            <div class="h-3 w-3 bg-emerald-500 rounded-full animate-pulse"></div>
+            <span class="text-xs font-bold uppercase tracking-widest text-emerald-400">Support Line</span>
         </div>
-        <div class="glass p-6 rounded-2xl border-l-4 border-blue-500">
-            <h3 class="text-xl font-bold text-blue-400 mb-2">2. Prepositions (At, On, In)</h3>
-            <ul class="text-slate-300 space-y-1">
-                <li><b>At:</b> Waqti cayiman (At 5 PM).</li>
-                <li><b>On:</b> Maalmaha (On Monday).</li>
-                <li><b>In:</b> Bilo ama Sano (In July).</li>
-            </ul>
-        </div>
+        <a href="https://wa.me/252613040087" class="text-emerald-400 font-black tracking-tighter hover:scale-105 transition-transform">+252 613040087</a>
     </div>
 
-    <div id="video-page" class="tab-content hidden text-center">
-        <div class="glass p-4 rounded-3xl">
-            <h3 class="mb-4 font-bold">Daawo Sharaxaadda Casharka</h3>
-            <div class="aspect-video bg-black rounded-2xl flex items-center justify-center border border-slate-700">
-                <p class="text-slate-500 p-4">Halkan geli link-gaaga YouTube-ka ama TikTok-ga</p>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-10">
+        <button onclick="nav('lesson')" id="b-lesson" class="nav-btn tab-active py-3 rounded-xl font-bold text-sm glass-ui">📖 Lesson</button>
+        <button onclick="nav('video')" id="b-video" class="nav-btn py-3 rounded-xl font-bold text-sm glass-ui">🎥 Video</button>
+        <button onclick="nav('quiz')" id="b-quiz" class="nav-btn py-3 rounded-xl font-bold text-sm glass-ui">✍️ Practice</button>
+        <button onclick="nav('exam')" id="b-exam" class="nav-btn py-3 rounded-xl font-bold text-sm glass-ui border-2 border-emerald-500/30">🎓 Final Exam</button>
+    </div>
+
+    <div id="p-lesson" class="content-sec space-y-6">
+        <div class="glass-ui p-8 rounded-3xl shadow-xl">
+            <h2 class="text-2xl font-bold text-emerald-400 mb-4 italic underline decoration-emerald-500/30 text-center">Unit 1: The Foundation</h2>
+            <div class="space-y-4">
+                <div class="p-4 bg-slate-800/50 rounded-xl border-l-4 border-emerald-500">
+                    <p class="font-bold text-emerald-400">Grammar: Present Simple</p>
+                    <p class="text-sm text-slate-300">Waxaan isticmaalnaa marka aan ka hadlayno wax joogto ah. <b>He/She/It</b> waxay qaataan <b>-s</b> (e.g., She drinks coffee).</p>
+                </div>
+                <div class="p-4 bg-slate-800/50 rounded-xl border-l-4 border-blue-500">
+                    <p class="font-bold text-blue-400">Prepositions of Place</p>
+                    <p class="text-sm text-slate-300"><b>On</b> (Dusha), <b>In</b> (Gudaha), <b>At</b> (Goob cayiman). Tusaale: The book is <b>on</b> the table.</p>
+                </div>
             </div>
-            <p class="mt-4 text-sm text-slate-400">Muugaalkani wuxuu si faahfaahsan u sharaxayaa casharka Unit 1.</p>
         </div>
     </div>
 
-    <div id="quiz-page" class="tab-content hidden">
-        <div class="flex justify-between mb-4 px-2">
-            <span class="text-emerald-400 font-bold text-sm">Step: <span id="q-num">1</span>/300</span>
-            <span class="text-blue-400 font-bold text-sm">Score: <span id="q-score">100</span>%</span>
-        </div>
-        
-        <div class="glass p-8 rounded-3xl border-t-4 border-emerald-500">
-            <h2 id="q-text" class="text-xl font-bold mb-6"></h2>
-            <div id="q-options" class="space-y-3"></div>
-
-            <div id="q-feedback" class="hidden mt-6 p-4 bg-slate-800 rounded-xl border border-emerald-500/30">
-                <p class="text-emerald-400 font-bold text-sm mb-1 uppercase tracking-wider">💡 Fasiraadda:</p>
-                <p id="f-text" class="text-slate-300 text-sm leading-relaxed"></p>
+    <div id="p-video" class="content-sec hidden">
+        <div class="glass-ui p-6 rounded-3xl text-center">
+            <div class="aspect-video bg-black rounded-2xl mb-4 overflow-hidden border border-slate-700">
+                <iframe class="w-full h-full" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
             </div>
+            <p class="text-slate-400 text-sm italic">Daawashada video-ga waxay kaa caawinaysaa dhawaaqa saxda ah (Pronunciation).</p>
+        </div>
+    </div>
 
-            <button id="next-btn" onclick="nextQ()" class="hidden w-full mt-6 py-4 bg-emerald-600 rounded-xl font-extrabold shadow-lg shadow-emerald-500/20 active:scale-95 transition-all">
-                Next Step ➔
-            </button>
+    <div id="p-quiz" class="content-sec hidden">
+        <div class="glass-ui p-8 rounded-3xl border-t-4 border-emerald-500 relative overflow-hidden">
+            <div class="absolute top-0 right-0 p-4 opacity-10 text-6xl font-black">QUIZ</div>
+            <h2 id="q-txt" class="text-xl font-bold mb-8"></h2>
+            <div id="q-opts" class="grid gap-3"></div>
+            <div id="q-feedback" class="hidden mt-6 p-5 bg-emerald-500/10 rounded-2xl border border-emerald-500/20">
+                <p class="text-emerald-400 font-bold text-xs uppercase mb-1">💡 Sababta loo doortay:</p>
+                <p id="f-txt" class="text-slate-300 text-sm leading-relaxed"></p>
+                <button onclick="nextQ()" class="w-full mt-4 py-3 bg-emerald-600 rounded-xl font-bold shadow-lg">Next Question ➔</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="p-exam" class="content-sec hidden">
+        <div id="exam-intro" class="glass-ui p-10 rounded-3xl text-center">
+            <h2 class="text-3xl font-black text-emerald-500 mb-4">Final Proficiency Exam</h2>
+            <p class="mb-8 text-slate-400">Imtixaankan wuxuu ka kooban yahay 100 su'aalood. Haddii aad hesho 80% iyo ka badan, waxaad heli doontaa Shahaado.</p>
+            <button onclick="startExam()" class="px-10 py-4 bg-gradient-to-r from-emerald-600 to-blue-600 rounded-2xl font-black hover:scale-105 transition-all">BILOW IMTIXAANKA</button>
+        </div>
+
+        <div id="exam-box" class="hidden glass-ui p-8 rounded-3xl border-2 border-blue-500/50">
+            <div class="flex justify-between mb-6 text-xs font-bold text-blue-400">
+                <span>QUESTION: <span id="ex-num">1</span>/100</span>
+                <span>TIME LEFT: 20:00</span>
+            </div>
+            <h2 id="ex-q-txt" class="text-xl font-bold mb-6"></h2>
+            <div id="ex-opts" class="grid gap-3"></div>
+        </div>
+
+        <div id="certificate" class="p-12 rounded-lg text-center shadow-2xl">
+            <h1 class="text-4xl font-serif text-emerald-500 mb-2 italic underline">Certificate of Achievement</h1>
+            <p class="text-slate-400 mb-10">This is to certify that an Aman-Yare student has successfully completed the</p>
+            <h2 class="text-2xl font-bold text-white mb-10 tracking-widest">ENGLISH MASTERY 1000 STEPS</h2>
+            <div class="flex justify-between mt-10 border-t border-slate-700 pt-8">
+                <div class="text-left"><p class="text-xs text-slate-500 uppercase">Instructor</p><p class="font-bold text-emerald-500 italic">Aman-Yare</p></div>
+                <div class="text-right"><p class="text-xs text-slate-500 uppercase">Grade</p><p id="final-grade" class="font-bold text-white">A+</p></div>
+            </div>
         </div>
     </div>
 </div>
 
 <script>
-    const quizItems = [
-        { q: "She ___ breakfast at 8:00 AM.", a: ["have", "has", "having"], c: 1, f: "Mawduuca 'She' wuxuu mar kasta qaataa 'has' marka laga hadlayo lahaanshaha ama ficilka joogtada ah." },
-        { q: "Your opinion is quite similar ___ mine.", a: ["with", "to", "for"], c: 1, f: "Ereyga 'Similar' wuxuu mar kasta qaataa preposition-ka 'to'." },
-        { q: "She hung her family picture ___ the wall.", a: ["on", "at", "in"], c: 0, f: "Wax kasta oo dusha laga surayo ama yaala waxaan isticmaalnaa 'on'." },
-        { q: "I ___ been working here for three years.", a: ["has", "have", "am"], c: 1, f: "Mawduuca 'I' wuxuu qaataa 'have' marka la isticmaalayo Present Perfect." },
-        { q: "Could you please ___ the document?", a: ["attach", "attached", "attaching"], c: 0, f: "Ka dib ereyada 'Could/Can', ficilku ma isbeddelo (Base form)." }
+    const questions = [
+        { q: "She ___ breakfast at 8:00 AM.", a: ["have", "has", "having"], c: 1, f: "Mawduuca 'She' wuxuu mar kasta qaataa 'has' (Present Simple)." },
+        { q: "Your opinion is quite similar ___ mine.", a: ["with", "to", "for"], c: 1, f: "'Similar' wuxuu mar kasta la socdaa 'to'." },
+        { q: "She hung her family picture ___ the wall.", a: ["on", "at", "in"], c: 0, f: "Wax kasta oo dusha laga surayo waxaan isticmaalnaa 'on'." },
+        { q: "Which one is professional?", a: ["What's up?", "How do you do?", "Hey there!"], c: 1, f: "'How do you do' waa salaanta rasmiga ah ee xafiiska." }
     ];
 
-    // Buuxi ilaa 300 oo su'aalood oo aan is-celinayn
-    for(let i=quizItems.length; i<300; i++) {
-        quizItems.push({
-            q: `Step ${i+1}: Advanced Workplace English Scenario.`,
-            a: ["Professional Choice", "Casual Choice", "Incorrect"],
-            c: 0,
-            f: "Heerkan waxaad ku baranaysaa luqadda rasmiga ah ee xafiisyada caalamiga ah."
-        });
-    }
+    let currentIdx = 0;
+    let examScore = 0;
 
-    let current = 0;
-    let canClick = true;
-
-    function openTab(name) {
-        document.querySelectorAll('.tab-content').forEach(t => t.classList.add('hidden'));
-        document.querySelectorAll('.btn-tab').forEach(b => b.classList.remove('active'));
-        document.getElementById(name + '-page').classList.remove('hidden');
-        document.getElementById('t-' + name).classList.add('active');
-        if(name === 'quiz') loadQ();
+    function nav(id) {
+        document.querySelectorAll('.content-sec').forEach(s => s.classList.add('hidden'));
+        document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('tab-active'));
+        document.getElementById('p-' + id).classList.remove('hidden');
+        document.getElementById('b-' + id).classList.add('tab-active');
+        if(id === 'quiz') loadQ();
     }
 
     function loadQ() {
-        canClick = true;
-        const data = quizItems[current];
-        document.getElementById('q-text').innerText = data.q;
-        document.getElementById('q-num').innerText = current + 1;
+        const d = questions[currentIdx % questions.length];
+        document.getElementById('q-txt').innerText = d.q;
         document.getElementById('q-feedback').classList.add('hidden');
-        document.getElementById('next-btn').classList.add('hidden');
-        
-        const box = document.getElementById('q-options');
+        const box = document.getElementById('q-opts');
         box.innerHTML = '';
-        data.a.forEach((opt, i) => {
+        d.a.forEach((o, i) => {
             const b = document.createElement('button');
-            b.className = "w-full p-4 rounded-xl glass text-left font-bold border border-slate-700 transition-all";
-            b.innerText = opt;
-            b.onclick = () => check(i, b);
+            b.className = "option-card w-full p-5 rounded-2xl text-left font-bold glass-ui";
+            b.innerText = o;
+            b.onclick = () => {
+                if(i === d.c) b.classList.add('correct');
+                else { b.classList.add('incorrect'); document.querySelectorAll('.option-card')[d.c].classList.add('correct'); }
+                document.getElementById('f-txt').innerText = d.f;
+                document.getElementById('q-feedback').classList.remove('hidden');
+            };
             box.appendChild(b);
         });
     }
 
-    function check(idx, btn) {
-        if(!canClick) return;
-        canClick = false;
-        const data = quizItems[current];
-        if(idx === data.c) {
-            btn.classList.add('correct');
-        } else {
-            btn.classList.add('incorrect');
-            document.querySelectorAll('#q-options button')[data.c].classList.add('correct');
-        }
-        document.getElementById('f-text').innerText = data.f;
-        document.getElementById('q-feedback').classList.remove('hidden');
-        document.getElementById('next-btn').classList.remove('hidden');
+    function nextQ() { currentIdx++; loadQ(); }
+
+    function startExam() {
+        document.getElementById('exam-intro').classList.add('hidden');
+        document.getElementById('exam-box').classList.remove('hidden');
+        loadExamQ();
     }
 
-    function nextQ() {
-        current++;
-        if(current < quizItems.length) loadQ();
-        else alert("Victory! You completed 300 steps!");
+    function loadExamQ() {
+        if(currentIdx >= 10) { // Test with 10 first
+            document.getElementById('exam-box').classList.add('hidden');
+            document.getElementById('certificate').style.display = 'block';
+            return;
+        }
+        const d = questions[currentIdx % questions.length];
+        document.getElementById('ex-q-txt').innerText = d.q;
+        document.getElementById('ex-num').innerText = currentIdx + 1;
+        const box = document.getElementById('ex-opts');
+        box.innerHTML = '';
+        d.a.forEach((o, i) => {
+            const b = document.createElement('button');
+            b.className = "option-card w-full p-5 rounded-2xl text-left font-bold glass-ui hover:bg-blue-500/20";
+            b.innerText = o;
+            b.onclick = () => { currentIdx++; loadExamQ(); };
+            box.appendChild(b);
+        });
     }
 </script>
 </body>
-                        </html>
+    </html>
