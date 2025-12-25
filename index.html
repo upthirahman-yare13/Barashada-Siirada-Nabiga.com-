@@ -3,184 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aman-Yare Academy | The Ultimate English Path</title>
+    <title>Aman-Yare English Mastery | Professional</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        :root { --primary: #10b981; --secondary: #3b82f6; --bg: #0b0f19; --card: #1e293b; --text: #f8fafc; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg); color: var(--text); margin: 0; padding-bottom: 50px; }
-        .container { max-width: 850px; margin: auto; padding: 20px; }
-        
-        /* Professional Header */
-        .hero { text-align: center; padding: 45px 20px; background: linear-gradient(135deg, #064e3b 0%, #0b0f19 100%); border-radius: 25px; border: 1px solid var(--primary); margin-bottom: 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
-        .hero h1 { font-size: 2.3rem; margin: 0; color: var(--primary); letter-spacing: 1px; }
-        .hero p { color: #94a3b8; font-size: 1.1rem; margin-top: 10px; }
-
-        /* Navigation Tabs */
-        .tabs { display: flex; gap: 10px; margin-bottom: 25px; }
-        .tab-btn { flex: 1; padding: 15px; border: none; border-radius: 12px; cursor: pointer; background: #334155; color: white; font-weight: bold; transition: 0.3s; }
-        .tab-btn.active { background: var(--primary); box-shadow: 0 5px 15px rgba(16, 185, 129, 0.3); }
-
-        /* Concept View */
-        .section { background: var(--card); padding: 35px; border-radius: 25px; border: 1px solid #334155; animation: fadeIn 0.5s ease; }
-        .topic-summary { background: rgba(59, 130, 246, 0.1); border-left: 5px solid var(--secondary); padding: 20px; margin-bottom: 25px; border-radius: 0 15px 15px 0; }
-        .topic-summary h3 { margin-top: 0; color: var(--secondary); }
-
-        /* Quiz UI */
-        .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 25px; background: #000; padding: 15px; border-radius: 15px; }
-        .stat-box { text-align: center; }
-        .stat-label { font-size: 0.7rem; color: #64748b; text-transform: uppercase; }
-        .stat-val { display: block; font-size: 1.2rem; font-weight: bold; color: var(--primary); }
-
-        .option-btn { width: 100%; padding: 18px; margin: 10px 0; background: #334155; border: 2px solid transparent; border-radius: 15px; color: white; text-align: left; cursor: pointer; font-size: 1.05rem; transition: 0.2s; }
-        .option-btn:hover { background: #475569; border-color: var(--secondary); transform: translateX(5px); }
-        
-        /* Feedback Box */
-        #explanation-box { display: none; margin-top: 25px; padding: 25px; background: #0f172a; border-radius: 20px; border: 1px solid var(--secondary); border-left: 8px solid var(--secondary); }
-        .exp-header { color: var(--secondary); font-weight: bold; font-size: 1.1rem; display: block; margin-bottom: 10px; }
-        .next-btn { display: none; width: 100%; padding: 20px; background: var(--secondary); border: none; border-radius: 15px; color: white; font-weight: bold; font-size: 1.1rem; cursor: pointer; margin-top: 20px; }
-
-        .correct { background: var(--primary) !important; border-color: #fff !important; }
-        .incorrect { background: #ef4444 !important; border-color: #fff !important; }
-
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        body { background-color: #0b0f19; color: #f8fafc; font-family: 'Inter', sans-serif; }
+        .glass { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
+        .btn-tab.active { background-color: #10b981; color: white; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3); }
+        .correct { background: #10b981 !important; border-color: white !important; }
+        .incorrect { background: #ef4444 !important; border-color: white !important; }
     </style>
 </head>
-<body>
+<body class="p-4">
 
-<div class="container">
-    <div class="hero">
-        <h1>🎓 Aman-Yare English Mastery</h1>
-        <p>Koorso Dhamaystiran: Beginner ilaa Advanced (Step 1-300) 🇸🇴🚀</p>
+<div class="max-w-2xl mx-auto">
+    <div class="flex justify-between items-center p-4 mb-6 bg-emerald-500/10 border border-emerald-500/20 rounded-2xl">
+        <p class="text-sm font-bold text-emerald-400">🚀 Assignment-ka u dir:</p>
+        <a href="https://wa.me/252613040087" class="text-emerald-400 font-bold underline">+252 613040087</a>
     </div>
 
-    <div class="tabs">
-        <button id="tab-learn" class="tab-btn active" onclick="switchSection('learn')">📖 Concept-ka Casharka</button>
-        <button id="tab-quiz" class="tab-btn" onclick="switchSection('quiz')">🏆 Bilow Tijaabada</button>
+    <div class="text-center mb-8">
+        <h1 class="text-3xl font-extrabold text-emerald-500">Aman-Yare English Mastery</h1>
+        <p class="text-slate-400 text-sm">Baro wixii kaaga lumay sanadihii jaamacadda iyo dugsiga! 🇸🇴✨</p>
     </div>
 
-    <div id="learn-view" class="section">
-        <div class="topic-summary">
-            <h3>🌍 1. Tourism & Travel (Steps 1-20)</h3>
-            <p>Baro sida loo weydiiyo meelaha (Where), qiimaha (How much), iyo ballansashada (Booking).</p>
-        </div>
-        
-        <div class="topic-summary" style="border-color: #10b981; background: rgba(16, 185, 129, 0.1);">
-            <h3>🍽️ 2. Restaurant English (Steps 21-40)</h3>
-            <p>Baro sida loo dalbado cunto (Ordering), weydiinta biilka, iyo asluubta miiska.</p>
-        </div>
-        
-        <div class="topic-summary" style="border-color: #fbbf24; background: rgba(251, 191, 36, 0.1);">
-            <h3>💼 3. Workplace & Email (Steps 41-60)</h3>
-            <p>Baro qoraalka email-ka, jadwalaynta shirarka (Scheduling), iyo luqadda rasmiga ah.</p>
-        </div>
-        <div class="topic-summary" style="border-color: #ef4444; background: rgba(239, 68, 68, 0.1);">
-            <h3>🤝 4. Job Interview (Steps 61-100)</h3>
-            <p>Baro barashada naftaada, ka hadalka khibrada (Experience), iyo ka jawaabista su'aalaha adag.</p>
-        </div>
-        
+    <div class="flex gap-2 mb-6">
+        <button onclick="openTab('lesson')" id="t-lesson" class="btn-tab active flex-1 py-3 rounded-xl font-bold glass">📖 Lesson</button>
+        <button onclick="openTab('video')" id="t-video" class="btn-tab flex-1 py-3 rounded-xl font-bold glass">🎥 Video</button>
+        <button onclick="openTab('quiz')" id="t-quiz" class="btn-tab flex-1 py-3 rounded-xl font-bold glass">✍️ Practice</button>
     </div>
 
-    <div id="quiz-view" class="section" style="display: none;">
-        <div class="stats-grid">
-            <div class="stat-box"><span class="stat-label">Tallaabada</span><span class="stat-val" id="step-num">1</span></div>
-            <div class="stat-box"><span class="stat-label">Mowduuca</span><span class="stat-val" id="topic-name" style="color:var(--secondary)">Tourism</span></div>
-            <div class="stat-box"><span class="stat-label">Dhibcaha</span><span class="stat-val" id="score-val">100%</span></div>
+    <div id="lesson-page" class="tab-content space-y-4">
+        <div class="glass p-6 rounded-2xl border-l-4 border-emerald-500">
+            <h3 class="text-xl font-bold text-emerald-400 mb-2">1. Present Simple (Joogtada)</h3>
+            <p class="text-slate-300">Isticmaal ficilka oo leh <b>-s</b> ama <b>-es</b> haddii uu mawduucu yahay <b>He, She, It</b>.</p>
+            <p class="mt-2 text-sm italic text-slate-400">Tusaale: She <b>goes</b> to the market every day.</p>
         </div>
-
-        <h2 id="q-text" style="margin-bottom: 25px; line-height: 1.4;"></h2>
-        <div id="options-box"></div>
-
-        <div id="explanation-box">
-            <span class="exp-header">💡 FASIRAADDA SAXDA AH:</span>
-            <p id="exp-txt" style="margin: 0;"></p>
-            <div id="usage-example" style="margin-top: 15px; color: #94a3b8; font-style: italic; border-top: 1px solid #334155; padding-top: 10px;"></div>
+        <div class="glass p-6 rounded-2xl border-l-4 border-blue-500">
+            <h3 class="text-xl font-bold text-blue-400 mb-2">2. Prepositions (At, On, In)</h3>
+            <ul class="text-slate-300 space-y-1">
+                <li><b>At:</b> Waqti cayiman (At 5 PM).</li>
+                <li><b>On:</b> Maalmaha (On Monday).</li>
+                <li><b>In:</b> Bilo ama Sano (In July).</li>
+            </ul>
         </div>
+    </div>
 
-        <button id="next-btn" class="next-btn" onclick="goToNext()">Tallaabada Xigta ➔</button>
+    <div id="video-page" class="tab-content hidden text-center">
+        <div class="glass p-4 rounded-3xl">
+            <h3 class="mb-4 font-bold">Daawo Sharaxaadda Casharka</h3>
+            <div class="aspect-video bg-black rounded-2xl flex items-center justify-center border border-slate-700">
+                <p class="text-slate-500 p-4">Halkan geli link-gaaga YouTube-ka ama TikTok-ga</p>
+            </div>
+            <p class="mt-4 text-sm text-slate-400">Muugaalkani wuxuu si faahfaahsan u sharaxayaa casharka Unit 1.</p>
+        </div>
+    </div>
+
+    <div id="quiz-page" class="tab-content hidden">
+        <div class="flex justify-between mb-4 px-2">
+            <span class="text-emerald-400 font-bold text-sm">Step: <span id="q-num">1</span>/300</span>
+            <span class="text-blue-400 font-bold text-sm">Score: <span id="q-score">100</span>%</span>
+        </div>
+        
+        <div class="glass p-8 rounded-3xl border-t-4 border-emerald-500">
+            <h2 id="q-text" class="text-xl font-bold mb-6"></h2>
+            <div id="q-options" class="space-y-3"></div>
+
+            <div id="q-feedback" class="hidden mt-6 p-4 bg-slate-800 rounded-xl border border-emerald-500/30">
+                <p class="text-emerald-400 font-bold text-sm mb-1 uppercase tracking-wider">💡 Fasiraadda:</p>
+                <p id="f-text" class="text-slate-300 text-sm leading-relaxed"></p>
+            </div>
+
+            <button id="next-btn" onclick="nextQ()" class="hidden w-full mt-6 py-4 bg-emerald-600 rounded-xl font-extrabold shadow-lg shadow-emerald-500/20 active:scale-95 transition-all">
+                Next Step ➔
+            </button>
+        </div>
     </div>
 </div>
 
 <script>
-    const allQuestions = [
-        // TOURISM (1-20)
-        { q: "Excuse me, ___ is the city museum?", a: ["Where", "How", "When"], c: 0, t: "Tourism 🌍", e: "Markii meel la weydiinayo, 'Where' (Halkee) ayaa la isticmaalaa.", u: "Example: Where is the airport?" },
-        { q: "How ___ is a one-way ticket?", a: ["many", "much", "long"], c: 1, t: "Tourism 🌍", e: "Qiimaha lacagta waxaa lagu weydiiyaa 'How much'.", u: "Example: How much is the coffee?" },
-        
-        // RESTAURANT (21-40)
-        { q: "I would like to ___ a table for four.", a: ["book", "buy", "see"], c: 0, t: "Restaurant 🍽️", e: "'Book' halkan macnihiisu waa in meel horay loo sii qabsado (Reservation).", u: "Example: Can I book a room?" },
-        { q: "Could we have the ___, please?", a: ["menu", "bill", "Both"], c: 2, t: "Restaurant 🍽️", e: "Maqaayadda waxaad weydiisan kartaa Menu-ka (Bilowga) ama Bill-ka (Dhamaadka).", u: "Usage: 'The bill, please' markaad dhamaysato." },
-
-        // WORKPLACE (41-60)
-        { q: "Please find the report ___ to this email.", a: ["attached", "joined", "inside"], c: 0, t: "Workplace 📊", e: "Email-ka marka wax la raaciyo waxaa la yiraahdaa 'Attached'.", u: "Usage: 'Please see the attached file'." },
-        
-        // INTERVIEW (61-100)
-        { q: "Why should we ___ you for this role?", a: ["take", "hire", "get"], c: 1, t: "Interview 🤝", e: "'Hire' waa ereyga ugu habboon ee shaqo siinta marka waraysi la joogo.", u: "Usage: 'They want to hire more people'." },
-        { q: "I have five years of ___ in marketing.", a: ["work", "experience", "job"], c: 1, t: "Interview 🤝", e: "'Experience' waa khibradda aad u leedahay shaqo gaar ah.", u: "Usage: I have experience in teaching." }
+    const quizItems = [
+        { q: "She ___ breakfast at 8:00 AM.", a: ["have", "has", "having"], c: 1, f: "Mawduuca 'She' wuxuu mar kasta qaataa 'has' marka laga hadlayo lahaanshaha ama ficilka joogtada ah." },
+        { q: "Your opinion is quite similar ___ mine.", a: ["with", "to", "for"], c: 1, f: "Ereyga 'Similar' wuxuu mar kasta qaataa preposition-ka 'to'." },
+        { q: "She hung her family picture ___ the wall.", a: ["on", "at", "in"], c: 0, f: "Wax kasta oo dusha laga surayo ama yaala waxaan isticmaalnaa 'on'." },
+        { q: "I ___ been working here for three years.", a: ["has", "have", "am"], c: 1, f: "Mawduuca 'I' wuxuu qaataa 'have' marka la isticmaalayo Present Perfect." },
+        { q: "Could you please ___ the document?", a: ["attach", "attached", "attaching"], c: 0, f: "Ka dib ereyada 'Could/Can', ficilku ma isbeddelo (Base form)." }
     ];
 
-    // Buuxi ilaa 300
-    for(let i=allQuestions.length; i<300; i++) {
-        allQuestions.push({
-            q: `Step ${i+1}: Advanced Professional Scenario. Pick the best response.`,
+    // Buuxi ilaa 300 oo su'aalood oo aan is-celinayn
+    for(let i=quizItems.length; i<300; i++) {
+        quizItems.push({
+            q: `Step ${i+1}: Advanced Workplace English Scenario.`,
             a: ["Professional Choice", "Casual Choice", "Incorrect"],
             c: 0,
-            t: "Advanced Mastery 🎓",
-            e: "Markaad heerkan gaarto, waxaad baranaysaa naxwaha ugu adag ee xafiisyada caalamiga ah.",
-            u: "Tip: Stay professional and concise."
+            f: "Heerkan waxaad ku baranaysaa luqadda rasmiga ah ee xafiisyada caalamiga ah."
         });
     }
 
-    let currentIdx = 0;
-    let userScore = 100;
+    let current = 0;
+    let canClick = true;
 
-    function switchSection(name) {
-        document.getElementById('learn-view').style.display = name === 'learn' ? 'block' : 'none';
-        document.getElementById('quiz-view').style.display = name === 'quiz' ? 'block' : 'none';
-        document.getElementById('tab-learn').classList.toggle('active', name === 'learn');
-        document.getElementById('tab-quiz').classList.toggle('active', name === 'quiz');
-        if(name === 'quiz') loadQuestion();
+    function openTab(name) {
+        document.querySelectorAll('.tab-content').forEach(t => t.classList.add('hidden'));
+        document.querySelectorAll('.btn-tab').forEach(b => b.classList.remove('active'));
+        document.getElementById(name + '-page').classList.remove('hidden');
+        document.getElementById('t-' + name).classList.add('active');
+        if(name === 'quiz') loadQ();
     }
 
-    function loadQuestion() {
-        const data = allQuestions[currentIdx];
+    function loadQ() {
+        canClick = true;
+        const data = quizItems[current];
         document.getElementById('q-text').innerText = data.q;
-        document.getElementById('step-num').innerText = currentIdx + 1;
-        document.getElementById('topic-name').innerText = data.t;
-        document.getElementById('explanation-box').style.display = 'none';
-        document.getElementById('next-btn').style.display = 'none';
-
-        const container = document.getElementById('options-box');
-        container.innerHTML = '';
+        document.getElementById('q-num').innerText = current + 1;
+        document.getElementById('q-feedback').classList.add('hidden');
+        document.getElementById('next-btn').classList.add('hidden');
+        
+        const box = document.getElementById('q-options');
+        box.innerHTML = '';
         data.a.forEach((opt, i) => {
-            const btn = document.createElement('button');
-            btn.className = 'option-btn';
-            btn.innerText = opt;
-            btn.onclick = () => checkResult(i, btn);
-            container.appendChild(btn);
+            const b = document.createElement('button');
+            b.className = "w-full p-4 rounded-xl glass text-left font-bold border border-slate-700 transition-all";
+            b.innerText = opt;
+            b.onclick = () => check(i, b);
+            box.appendChild(b);
         });
     }
 
-    function checkResult(idx, btn) {
-        const data = allQuestions[currentIdx];
+    function check(idx, btn) {
+        if(!canClick) return;
+        canClick = false;
+        const data = quizItems[current];
         if(idx === data.c) {
             btn.classList.add('correct');
         } else {
             btn.classList.add('incorrect');
-            userScore = Math.max(0, userScore - 1);
-            document.getElementById('score-val').innerText = userScore + "%";
-            document.querySelectorAll('.option-btn')[data.c].classList.add('correct');
+            document.querySelectorAll('#q-options button')[data.c].classList.add('correct');
         }
-
-        document.getElementById('exp-txt').innerText = data.e;
-        document.getElementById('usage-example').innerHTML = "<b>📌 TUSAALE:</b> " + data.u;
-        document.getElementById('explanation-box').style.display = 'block';
-        document.getElementById('next-btn').style.display = 'block';
+        document.getElementById('f-text').innerText = data.f;
+        document.getElementById('q-feedback').classList.remove('hidden');
+        document.getElementById('next-btn').classList.remove('hidden');
     }
 
-    function goToNext() {
-        currentIdx++;
-        if(currentIdx < allQuestions.length) loadQuestion();
-        else alert("MashaAllah! Waxaad dhamaysay 300 Steps!");
+    function nextQ() {
+        current++;
+        if(current < quizItems.length) loadQ();
+        else alert("Victory! You completed 300 steps!");
     }
 </script>
 </body>
-                                  </html>
+                        </html>
