@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Queen Rumaan - Private Island 👑</title>
+    <title>Queen Rumaan - Private Surprise 👑</title>
     <style>
         :root { --gold: #D4AF37; --black: #050505; }
-        body { font-family: 'Poppins', sans-serif; background: var(--black); color: white; margin: 0; text-align: center; overflow-x: hidden; }
+        body { font-family: 'Poppins', sans-serif; background: var(--black); color: white; margin: 0; text-align: center; overflow: hidden; }
         
         /* Login Screen */
         #login-screen {
@@ -35,9 +35,6 @@
 
         .hero { padding: 80px 20px; position: relative; background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?q=80&w=1200'); background-size: cover; }
         h1 { color: var(--gold); font-size: 45px; margin: 10px 0; letter-spacing: 4px; text-transform: uppercase; }
-        
-        /* Map Section */
-        .map-container { margin: 50px auto; max-width: 90%; border: 2px solid var(--gold); border-radius: 20px; overflow: hidden; }
 
         /* Hearts */
         @keyframes hearts { 0% { transform: translateY(0); opacity: 1; } 100% { transform: translateY(-100vh); opacity: 0; } }
@@ -57,55 +54,40 @@
 
     <div id="main-content">
         <div class="airplane">✈️</div>
-        
         <div class="hero">
             <img src="https://i.ibb.co/3ykG8Lw/IMG-20250912-WA0005.jpg" alt="Rumaan" class="profile-img">
             <h1>RUMAAN 👑</h1>
-            <p style="font-size: 20px; color: var(--gold);">Future Pilot | Owner of Rumaan Island</p>
+            <p style="font-size: 20px; color: var(--gold);">Future Pilot | Island Queen</p>
             <div style="margin: 20px 0;"><span style="background: var(--gold); color: black; padding: 5px 20px; border-radius: 20px; font-weight: bold;">16 Sano Jir</span></div>
         </div>
 
-        <div style="padding: 20px;">
-            <h2 style="color: var(--gold);">Location of Your Private Island 🏝️</h2>
-            <p>Halkan waa halka aad ku nasan doonto markaad diyaaradda soo dejiso!</p>
-            
-            <div class="map-container">
-                <iframe 
-                    width="100%" 
-                    height="350" 
-                    frameborder="0" 
-                    scrolling="no" 
-                    marginheight="0" 
-                    marginwidth="0" 
-                    src="https://maps.google.com/maps?q=Maldives%20Island&t=k&z=13&ie=UTF8&iwloc=&output=embed">
-                </iframe>
-            </div>
-
-            <div style="background: #111; padding: 30px; border-radius: 20px; border: 1px dashed var(--gold); margin-top: 40px;">
-                <h3 style="color: var(--gold);">Fariin Gaar Ah 🌹</h3>
-                <p>"Rumaan, dunidu waxay kugu sugaysaa daruuraha dushooda. Riyadaadu waa mid dhab ah, jasiiraddan iyo gurigana waa bilowga guushaada."</p>
-                <p style="font-weight: bold;">By: <span style="color: var(--gold);">Upthirahmaan</span></p>
+        <div style="padding: 30px;">
+            <div style="background: #111; padding: 30px; border-radius: 20px; border: 1px dashed var(--gold);">
+                <h3 style="color: var(--gold);">Fariin Surprise ah 🌹</h3>
+                <p>"Rumaan, boggan waxaa kuu dhisay saaxiibkaa Upthirahmaan. Riyadaadu waa dhab, mustaqbalkuna wuu ku sugayaa!"</p>
             </div>
         </div>
-
-        <footer style="padding: 50px; color: #444; font-size: 12px;">
-            &copy; 2025 | Queen of the Clouds
-        </footer>
     </div>
 
 <script>
     function checkPass() {
         const input = document.getElementById("pass-input").value;
         if(input === "2025") {
+            // Fariinta WhatsApp-ka kuu soo dhacaysa
+            const myNumber = "252771941086"; 
+            const msg = encodeURIComponent("Rumaan hadda ayay bogga furtoy! 😍✨");
+            
+            // Tani waxay fureysaa WhatsApp-kaaga si aad u ogaato inay gashay
+            window.open(`https://wa.me/${myNumber}?text=${msg}`, '_blank');
+
             document.getElementById("login-screen").style.display = "none";
             document.getElementById("main-content").style.display = "block";
             document.body.style.overflow = "auto";
         } else {
-            alert("Password-ka waa khalad, fadlan isku day markale!");
+            alert("Password-ka waa khalad!");
         }
     }
 
-    // Heart Animation
     setInterval(function() {
         const heart = document.createElement("div");
         heart.innerHTML = "❤";
