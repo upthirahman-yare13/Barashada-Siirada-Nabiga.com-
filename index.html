@@ -3,119 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cabdiraxmaan Yare - Digital Expert</title>
+    <title>Future Pilot & Island Queen</title>
     <style>
-        :root { --main: #00d2ff; --bg: #050a14; --card: #101927; --text: #94a3b8; --success: #25D366; }
-        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: white; margin: 0; line-height: 1.6; scroll-behavior: smooth; }
+        :root { --gold: #D4AF37; --black: #050505; --card: #121212; }
+        body { font-family: 'Poppins', sans-serif; background: var(--black); color: white; margin: 0; text-align: center; overflow-x: hidden; }
         
-        /* Navigation */
-        nav { background: rgba(5, 10, 20, 0.9); padding: 20px; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center; }
-        nav a { color: white; text-decoration: none; margin: 0 15px; font-weight: 500; font-size: 14px; transition: 0.3s; }
-        nav a:hover { color: var(--main); }
+        /* Header Section */
+        .hero { padding: 80px 20px; background: linear-gradient(45deg, #000, #1a1a1a); border-bottom: 2px solid var(--gold); }
+        .profile-img { 
+            width: 180px; height: 180px; border-radius: 50%; 
+            border: 4px solid var(--gold); object-fit: cover; 
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+        }
+        h1 { color: var(--gold); font-size: 35px; margin: 20px 0 10px; letter-spacing: 3px; text-transform: uppercase; }
 
-        .hero { text-align: center; padding: 120px 20px; background: radial-gradient(circle at top, #00d2ff15, var(--bg)); }
-        .hero h1 { font-size: 55px; margin: 0; color: var(--main); letter-spacing: -2px; }
-        .hero p { font-size: 22px; color: var(--text); margin-bottom: 30px; }
+        /* Gallery Section */
+        .container { max-width: 1000px; margin: auto; padding: 40px 20px; }
+        .section-title { color: var(--gold); font-size: 24px; margin: 50px 0 20px; text-transform: uppercase; border-bottom: 1px solid var(--gold); display: inline-block; padding-bottom: 5px; }
+        
+        .dream-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 20px; }
+        .dream-item { background: var(--card); border-radius: 20px; overflow: hidden; border: 1px solid rgba(212, 175, 55, 0.2); transition: 0.3s; }
+        .dream-item:hover { transform: translateY(-10px); border-color: var(--gold); }
+        .dream-item img { width: 100%; height: 250px; object-fit: cover; }
+        .dream-item p { padding: 15px; color: var(--gold); font-weight: bold; }
 
-        .container { max-width: 1100px; margin: auto; padding: 40px 20px; }
-        .section-title { border-left: 5px solid var(--main); padding-left: 20px; margin: 80px 0 40px; font-size: 32px; font-weight: bold; }
-        
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .card { background: var(--card); padding: 40px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.05); transition: 0.4s ease; position: relative; }
-        .card:hover { transform: translateY(-10px); border-color: var(--main); box-shadow: 0 20px 40px rgba(0, 210, 255, 0.1); }
-        
-        /* Pricing Style */
-        .price { font-size: 40px; font-weight: 800; color: white; margin: 20px 0; }
-        .price span { font-size: 16px; color: var(--text); }
-        ul { list-style: none; padding: 0; text-align: left; color: var(--text); }
-        ul li { margin-bottom: 12px; display: flex; align-items: center; }
-        ul li::before { content: "✓"; color: var(--success); margin-right: 10px; font-weight: bold; }
+        /* Pilot Quote */
+        .quote-box { background: rgba(212, 175, 55, 0.05); padding: 40px; border-radius: 30px; margin: 50px 0; border: 1px dashed var(--gold); }
+        .quote-box p { font-style: italic; font-size: 18px; line-height: 1.8; color: #ddd; }
 
-        .btn-whatsapp { display: inline-block; background: var(--success); color: white; padding: 18px 50px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 18px; transition: 0.3s; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2); }
-        .btn-whatsapp:hover { transform: scale(1.05); box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4); }
-        
-        .badge { background: rgba(0, 210, 255, 0.1); color: var(--main); padding: 6px 15px; border-radius: 10px; font-size: 12px; font-weight: bold; display: inline-block; margin-bottom: 15px; }
-        
-        footer { text-align: center; padding: 80px 0; color: #475569; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 100px; }
+        /* Button */
+        .btn-contact { 
+            display: inline-block; background: linear-gradient(45deg, #D4AF37, #f1c40f); color: black; 
+            padding: 18px 50px; border-radius: 50px; text-decoration: none; 
+            font-weight: 900; font-size: 20px; margin: 40px 0; 
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        .footer-note { font-size: 14px; color: #666; margin-top: 50px; border-top: 1px solid #222; padding-top: 30px; }
+        .upthi { color: var(--gold); font-weight: bold; }
     </style>
 </head>
 <body>
 
-<nav>
-    <a href="#services">Adeegyada</a>
-    <a href="#pricing">Qiimaha</a>
-    <a href="#reviews">Macaamiisha</a>
-    <a href="https://wa.me/252613040087">Contact</a>
-</nav>
-
 <div class="hero">
-    <div class="badge">FREELANCE EXPERT</div>
-    <h1>Cabdiraxmaan Yare</h1>
-    <p>Waxaan kuu dhisayaa Ganacsi Online ah oo guulaysta</p>
-    <a href="https://wa.me/252613040087?text=Asc%20Cabdiraxmaan%2C%20waxaan%20rabay%20inaad%20ii%20dhisto%20Landing%20Page" class="btn-whatsapp">ILA SOO XIRIIR (WhatsApp)</a>
+    <img src="saaxiib.jpg" alt="Future Pilot" class="profile-img">
+    <h1>Future Pilot ✈️</h1>
+    <p style="color: var(--gold); font-weight: bold; font-size: 18px;">16 Jir | Dreamer | Island Owner</p>
 </div>
 
 <div class="container">
     
-    <h2 id="services" class="section-title">Adeegyada Aan Bixiyo</h2>
-    <div class="grid">
-        <div class="card">
-            <h3>Web Design 🌐</h3>
-            <p>Dhisidda Landing Pages casri ah oo loogu talagalay inay iibkaaga kordhiyaan (Sales Focused Design).</p>
+    <div class="quote-box">
+        <h2 style="color: var(--gold); margin-top: 0;">Hiraalka Noloshayda ☁️</h2>
+        <p>"Riyadeydu waa inaan noqdo duuliye sare oo dunida isaga gudba. Waxaan rabaa inaan daruuraha dhexdooda ka dhex muuqdo, markaan daalona aan ku nasto jasiiradayda gaarka ah iyo gurigeyga quruxda badan."</p>
+    </div>
+
+    <h2 class="section-title">My Luxury Life 🏰</h2>
+    <div class="dream-grid">
+        <div class="dream-item">
+            <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=600" alt="Villa">
+            <p>Gurigeyga Riyada (Dream Villa)</p>
         </div>
-        <div class="card">
-            <h3>AI Automation 🤖</h3>
-            <p>Isticmaalka AI si loo habeeyo koodhka, qoraallada marketing-ka, iyo nidaamka shaqada.</p>
-        </div>
-        <div class="card">
-            <h3>Sales Funnels 📈</h3>
-            <p>Habeeynta nidaamka ka bilaawda TikTok/FB ilaa uu macaamilku WhatsApp-kaaga ka soo galo.</p>
+        <div class="dream-item">
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=600" alt="Island">
+            <p>Jasiiradayda Gaarka Ah (Private Island)</p>
         </div>
     </div>
 
-    <h2 id="pricing" class="section-title">Qiimaha Adeegyada</h2>
-    <div class="grid">
-        <div class="card">
-            <div class="badge">BILOWGA</div>
-            <h3>Landing Page</h3>
-            <div class="price">$25 <span>/Hal Bog</span></div>
-            <ul>
-                <li>Naqshad Casri ah</li>
-                <li>WhatsApp Integration</li>
-                <li>Mobile Responsive</li>
-                <li>GitHub Hosting Bilaash ah</li>
-            </ul>
-        </div>
-        <div class="card" style="border-color: var(--main);">
-            <div class="badge" style="background: var(--main); color: #000;">LOOGU JECELYAHAY</div>
-            <h3>Full Marketing System</h3>
-            <div class="price">$60 <span>/Nidaam Dhan</span></div>
-            <ul>
-                <li>Landing Page + Video Setup</li>
-                <li>TikTok Ads Strategy</li>
-                <li>AI Content Creation</li>
-                <li>3 Maalmood Support ah</li>
-            </ul>
-        </div>
-    </div>
+    <a href="tel:+252771941086" class="btn-contact">📞 LA XIRIIR</a>
 
-    <h2 id="reviews" class="section-title">Maxay Macaamiishu Dhahaan?</h2>
-    <div class="grid">
-        <div class="card" style="border-left: 5px solid var(--success);">
-            <p>"Cabdiraxmaan waa xirfadle dhab ah. Bogga uu ii dhisay wuxuu wax weyn ka beddelay ganacsigayga online-ka ah."</p>
-            <small>— Axmed Cali (E-commerce Seller)</small>
-        </div>
-        <div class="card" style="border-left: 5px solid var(--success);">
-            <p>"Waan ku faraxsanahay inaan isaga la shaqeeyo. Shaqadiisu waa mid nadiif ah oo deg-deg ah."</p>
-            <small>— Maryan Jaamac (Freelancer)</small>
-        </div>
+    <div class="footer-note">
+        Boggan waxaa si kalgacal leh ugu dhisay saaxiibkeeda qaaliga ah <br>
+        <span class="upthi">UPTHIRAHMAAN</span>
     </div>
-
 </div>
 
-<footer>
-    <p>&copy; 2025 Cabdiraxmaan Yare. Designed with ❤️ using AI & Code.</p>
+<footer style="padding-bottom: 50px;">
+    <p style="color: #444; font-size: 12px;">© 2025 | Queen of the Clouds</p>
 </footer>
 
 </body>
-        </html>
+</html>
