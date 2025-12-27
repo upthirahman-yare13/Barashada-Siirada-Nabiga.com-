@@ -3,91 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Surprise for Rumaan 🎁</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+    <title>Queen Rumaan’s Secret World 👑</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
     <style>
-        body { margin: 0; background: #050505; color: white; font-family: 'Playfair Display', serif; overflow: hidden; display: flex; align-items: center; justify-content: center; height: 100vh; }
-        
-        /* Falling Rose Petals */
-        .petal { position: fixed; top: -10%; color: #ff4d6d; user-select: none; z-index: 1000; pointer-events: none; animation: fall linear forwards; }
-        @keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+        :root { --gold: #D4AF37; --pink: #FF85A1; --soft-pink: #fbc2eb; --black: #050505; }
+        body { font-family: 'Poppins', sans-serif; background: var(--black); color: white; margin: 0; text-align: center; overflow-x: hidden; }
 
-        /* Gift Box Styles */
-        .gift-container { text-align: center; cursor: pointer; transition: 0.5s; }
-        .gift-box { font-size: 100px; transition: transform 0.5s; animation: shake 2s infinite; }
-        @keyframes shake { 0%, 100% { transform: rotate(0); } 10%, 30%, 50% { transform: rotate(10deg); } 20%, 40% { transform: rotate(-10deg); } }
-        
-        #surprise-content { display: none; text-align: center; animation: zoomIn 0.8s; }
-        @keyframes zoomIn { from { transform: scale(0); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        /* Floating Sparkles & Petals */
+        .sparkle { position: fixed; background: white; border-radius: 50%; pointer-events: none; animation: flyUp 5s linear infinite; }
+        @keyframes flyUp { from { transform: translateY(100vh) scale(0); opacity: 1; } to { transform: translateY(-10vh) scale(1.5); opacity: 0; } }
 
-        .heart-frame {
-            width: 200px; height: 200px; margin: 0 auto;
-            background: url('https://i.ibb.co/3ykG8Lw/IMG-20250912-WA0005.jpg');
-            background-size: cover; background-position: center;
-            clip-path: path('M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z');
-            border: 3px solid #D4AF37; box-shadow: 0 0 30px #ff4d6d;
+        /* Aesthetic Header */
+        .hero { 
+            height: 100vh; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+            url('https://images.unsplash.com/photo-1518131359143-b367bcad9472?q=80&w=1200'); 
+            background-size: cover; background-position: center; display: flex; flex-direction: column; align-items: center; justify-content: center;
         }
 
-        h1 { font-family: 'Dancing Script', cursive; font-size: 3rem; color: #D4AF37; margin: 15px 0; }
-        .timer-info { color: #ffb3c1; font-size: 0.9rem; margin: 10px 0; font-style: italic; }
+        .profile-ring { padding: 10px; border: 2px dashed var(--gold); border-radius: 50%; animation: spin 10s linear infinite; }
+        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        .profile-img { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; position: absolute; }
         
-        .wa-btn { background: #25d366; color: white; border: none; padding: 12px 30px; border-radius: 50px; font-weight: bold; cursor: pointer; margin-top: 20px; font-family: inherit; }
+        h1 { font-family: 'Dancing Script', cursive; font-size: 4rem; color: var(--gold); margin-top: 20px; text-shadow: 0 0 10px var(--gold); }
+
+        /* Daily Compliment */
+        .compliment-box { background: rgba(255, 133, 161, 0.1); padding: 20px; border-radius: 20px; margin: 30px auto; max-width: 80%; border: 1px solid var(--pink); }
+
+        /* Aesthetic Grid (Moodboard) */
+        .moodboard { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 20px; }
+        .mood-img { width: 100%; height: 150px; object-fit: cover; border-radius: 15px; filter: grayscale(30%); transition: 0.5s; }
+        .mood-img:hover { filter: grayscale(0%); transform: scale(1.05); }
+
+        /* Interactive Buttons */
+        .gift-btn { background: var(--gold); color: black; padding: 15px 30px; border-radius: 50px; border: none; font-weight: bold; margin: 10px; cursor: pointer; transition: 0.3s; width: 85%; }
+        .gift-btn:hover { background: white; box-shadow: 0 0 20px var(--gold); }
+
+        /* Floating Audio Control */
+        .music-btn { position: fixed; bottom: 20px; right: 20px; background: var(--pink); border-radius: 50%; width: 50px; height: 50px; border: none; cursor: pointer; z-index: 1001; }
     </style>
 </head>
 <body>
 
-    <div id="gift-section" class="gift-container" onclick="openGift()">
-        <div class="gift-box">🎁</div>
-        <h2 style="color: #D4AF37;">Taabo (Touch) Hadiyaddaada, Rumaan!</h2>
-        <p style="font-size: 0.8rem; opacity: 0.6;">Special Surprise for You from Upthirahmaan</p>
+    <div class="hero">
+        <div style="display:flex; align-items:center; justify-content:center;">
+            <div class="profile-ring" style="width:200px; height:200px;"></div>
+            <img src="https://i.ibb.co/3ykG8Lw/IMG-20250912-WA0005.jpg" class="profile-img">
+        </div>
+        <h1>Rumaan 👑</h1>
+        <p style="letter-spacing: 3px; font-weight: 300;">YOU ARE MY FAVORITE PERSON</p>
     </div>
 
-    <div id="surprise-content">
-        <div class="heart-frame"></div>
-        <h1>For My Queen Rumaan ❤️</h1>
-        <p style="max-width: 85%; margin: 0 auto; line-height: 1.5; color: #ffb3c1;">
-            "Rumaan, boggan waxaan kuu dhisay si aan kuu tuso sida aad ugu weyn tahay nolosheyda. Waxaad mudan tahay wax kasta oo qurux badan..."
-        </p>
-        <div class="timer-info">Waxaad boggan dhex joogtaa: <span id="timer">0</span> ilbiriqsi</div>
-        
-        <button class="wa-btn" onclick="sendResponse()">WhatsApp iigu jawaab 😍</button>
+    <div class="compliment-box">
+        <h3 style="color: var(--pink);">Today's Note 💌</h3>
+        <p id="daily-text">"Ma ogtahay in dhoolacadayntaadu ay tahay waxa ugu quruxda badan dunida?"</p>
+    </div>
+
+    <h2 style="font-family: 'Dancing Script', cursive; color: var(--gold);">Your Aesthetic Vibes ✨</h2>
+    <div class="moodboard">
+        <img src="https://images.unsplash.com/photo-1516062423079-7ca13cdc7f5a?w=400" class="mood-img">
+        <img src="https://images.unsplash.com/photo-1529619768328-e37af76c6fe5?w=400" class="mood-img">
+        <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=400" class="mood-img">
+        <img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=400" class="mood-img">
+    </div>
+
+    <div style="padding: 40px 20px;">
+        <h2 style="color: var(--gold);">Special Requests 🎀</h2>
+        <button class="gift-btn" onclick="sendWA('Daryeel & Jacail (Spiritual Care) ❤️')">Dooro Daryeel & Jacail ❤️</button>
+        <button class="gift-btn" onclick="sendWA('Inaan dalxiis u baxno Jasiirad 🏝️')">Inaan Dalxiis tagno 🏝️</button>
+        <button class="gift-btn" onclick="sendWA('Hadiyad qarsoon (Mystery Gift) 🎁')">Mystery Gift 🎁</button>
+    </div>
+
+    <div style="background: #111; padding: 40px 20px;">
+        <h2 style="color: var(--pink);">Intee in le'eg ayaad i aaminsan tahay? 💎</h2>
+        <button class="gift-btn" style="background:none; color:white; border:1px solid var(--gold);" onclick="sendWA('Waxaad tahay qofka aan nolosha la wadaagi doono 😍')">1. Qofka aan nolosha la wadaagi doono 😍</button>
+        <button class="gift-btn" style="background:none; color:white; border:1px solid var(--gold);" onclick="sendWA('Waxaad tahay saaxiibkayga ugu qaalisan 🤝')">2. Saaxiibkeyga qaaliga ah 🤝</button>
+        <button class="gift-btn" style="background:none; color:white; border:1px solid var(--gold);" onclick="sendWA('Adiga ayaa ii ah dunidda oo dhan 🌎')">3. Dunidda oo dhan 🌎</button>
+    </div>
+
+    <div style="padding: 50px; font-family: 'Dancing Script', cursive; font-size: 24px; color: var(--gold);">
+        Always by your side, <br> <b>Upthirahmaan</b>
     </div>
 
     <script>
-        let seconds = 0;
-        let timerStarted = false;
+        const myNum = "252771941086";
 
-        function openGift() {
-            document.getElementById('gift-section').style.display = 'none';
-            document.getElementById('surprise-content').style.display = 'block';
-            timerStarted = true;
-            startTimer();
+        function sendWA(msg) {
+            window.open(`https://wa.me/${myNum}?text=${encodeURIComponent("Upthirahmaan, waxaan doortay: " + msg)}`, '_blank');
         }
 
-        function startTimer() {
-            setInterval(() => {
-                if(timerStarted) {
-                    seconds++;
-                    document.getElementById('timer').innerText = seconds;
-                }
-            }, 1000);
-        }
+        // Compliment Generator
+        const compliments = [
+            "Ma ogtahay in dhoolacadayntaadu ay tahay waxa ugu quruxda badan dunida?",
+            "Rumaan, waxaad tahay gabar leh maskax dahab ah.",
+            "Mustaqbalkaagu wuxuu u ifayaa sida xiddigaha.",
+            "Waan ku faraxsanahay inaan noloshaada ka mid ahay."
+        ];
+        document.getElementById('daily-text').innerText = compliments[Math.floor(Math.random() * compliments.length)];
 
-        function sendResponse() {
-            const num = "252771941086";
-            const msg = `Haye Upthirahmaan, waan arkay surprise-kaaga quruxda badan! Aad ayaad ugu mahadsantahay. ❤️ (Waan dhex joogay ${seconds} ilbiriqsi)`;
-            window.open(`https://wa.me/${num}?text=${encodeURIComponent(msg)}`, '_blank');
-        }
-
-        // Falling Roses
+        // Sparkle Generator
         setInterval(() => {
-            const p = document.createElement('div');
-            p.innerHTML = '🌹'; p.className = 'petal';
-            p.style.left = Math.random() * 100 + 'vw';
-            p.style.animationDuration = Math.random() * 3 + 2 + 's';
-            document.body.appendChild(p);
-            setTimeout(() => p.remove(), 5000);
-        }, 300);
+            const s = document.createElement('div');
+            s.className = 'sparkle';
+            s.style.left = Math.random() * 100 + 'vw';
+            s.style.width = s.style.height = Math.random() * 5 + 2 + 'px';
+            s.style.animationDuration = Math.random() * 3 + 2 + 's';
+            document.body.appendChild(s);
+            setTimeout(() => s.remove(), 5000);
+        }, 200);
     </script>
 </body>
-</html>
+            </html>
