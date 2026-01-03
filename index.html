@@ -3,103 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bahjo Cosmetics & Boutique | Official Site</title>
-    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+    <title>Bahjo Cosmetics & Boutique | Kismaayo</title>
     <style>
-        :root { --pink: #ff2d78; --gold: #c5a021; --bg: #fffafa; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background: var(--bg); color: #333; }
+        :root { --main-pink: #e91e63; --gold-text: #b8860b; --soft-bg: #fff0f5; }
+        body { font-family: 'Poppins', sans-serif; margin: 0; background-color: var(--soft-bg); color: #333; }
         
-        /* Header */
-        header { background: white; padding: 15px; text-align: center; border-bottom: 3px solid var(--pink); position: sticky; top: 0; z-index: 100; }
-        .logo { font-size: 26px; font-weight: bold; color: var(--pink); text-transform: uppercase; }
+        /* Header & Navigation */
+        header { background: #fff; padding: 20px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .logo-text { font-size: 28px; font-weight: bold; color: var(--main-pink); letter-spacing: 2px; }
 
-        /* Business Card Section */
-        .biz-card { background: linear-gradient(135deg, #1a1a1a, #333); color: white; margin: 20px; padding: 20px; border-radius: 20px; text-align: center; border: 2px solid var(--gold); }
-        #qrcode { background: white; padding: 10px; display: inline-block; margin-top: 10px; border-radius: 10px; }
+        /* Banner */
+        .banner { background: linear-gradient(45deg, #e91e63, #ff85a2); color: white; padding: 40px 20px; text-align: center; }
+        
+        /* Product Grid */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 15px; padding: 20px; }
+        .card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); }
+        .card img { width: 100%; height: 150px; object-fit: cover; }
+        .card-body { padding: 12px; text-align: center; }
+        .price { color: var(--main-pink); font-weight: bold; font-size: 18px; display: block; margin: 5px 0; }
+        
+        .btn-buy { background: var(--main-pink); color: white; border: none; padding: 10px; width: 100%; border-radius: 8px; cursor: pointer; font-weight: bold; }
+        .btn-pdf { background: #333; color: gold; padding: 15px 25px; text-decoration: none; border-radius: 30px; display: inline-block; margin: 20px; font-weight: bold; }
 
-        /* Shop Grid */
-        .shop-title { text-align: center; color: var(--pink); margin-top: 30px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; padding: 15px; }
-        .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: center; }
-        .card img { width: 100%; height: 140px; object-fit: cover; }
-        .card-info { padding: 10px; }
-        .price { color: var(--pink); font-weight: bold; font-size: 1.1rem; }
-        .btn-order { background: var(--pink); color: white; border: none; padding: 10px; width: 90%; margin-bottom: 10px; border-radius: 5px; font-weight: bold; cursor: pointer; }
+        /* Location Map */
+        .map-container { padding: 20px; text-align: center; }
+        iframe { width: 100%; height: 300px; border-radius: 15px; border: 2px solid var(--main-pink); }
 
-        /* Reviews */
-        .reviews { padding: 20px; background: #ffeef4; }
-        .review-item { background: white; padding: 15px; border-radius: 10px; margin-bottom: 10px; border-left: 5px solid var(--pink); }
-
-        /* Map */
-        .map-frame { width: 100%; height: 250px; border: 0; border-radius: 15px; }
-
-        /* Floating Button */
-        .wa-float { position: fixed; bottom: 20px; right: 20px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 1000; }
+        /* Floating WhatsApp */
+        .whatsapp-float { position: fixed; bottom: 20px; right: 20px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 2px 2px 10px rgba(0,0,0,0.2); z-index: 1000; text-decoration: none; }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="logo">Bahjo Mahad Bisle</div>
-    <small>Cosmetics & Boutique - Kismaayo</small>
+    <div class="logo-text">BAHJO COSMETICS</div>
+    <p style="color: var(--gold-text); margin: 0;">Quruxda Gabdhaha Calanley</p>
 </header>
 
-<div class="biz-card">
-    <h3>Digital Business Card</h3>
-    <p><strong>Bahjo Mahad Bisle</strong></p>
-    <p>Founder & CEO</p>
-    <p>📞 +252 61 7799545</p>
-    <div id="qrcode"></div>
-    <p style="font-size: 12px; color: var(--gold);">Scan to visit our store!</p>
+<div class="banner">
+    <h2>Dukaanka Bahjo Mahad Bisle</h2>
+    <p>Cosmetics, Boutique & Agabka Quruxda</p>
+    <a href="#" class="btn-pdf" onclick="generatePDF()">📥 Soo Degso Liiska Qiimaha (PDF)</a>
 </div>
 
-<h2 class="shop-title">Alaabta Quruxda (Cosmetics)</h2>
-<div class="grid">
-    <div class="card">
-        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc4033c8?w=300" alt="Makeup">
-        <div class="card-info">
-            <h4>Full Makeup Set</h4>
-            <span class="price">$35.00</span><br><br>
-            <button class="btn-order" onclick="sendOrder('Full Makeup Set', '$35')">Dalbo Hadda</button>
-        </div>
-    </div>
+<div class="grid" id="product-list">
     <div class="card">
         <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=300" alt="Cream">
-        <div class="card-info">
-            <h4>Face Cream</h4>
-            <span class="price">$15.00</span><br><br>
-            <button class="btn-order" onclick="sendOrder('Face Cream', '$15')">Dalbo Hadda</button>
+        <div class="card-body">
+            <h4>Foundation Cream</h4>
+            <span class="price">$12.00</span>
+            <button class="btn-buy" onclick="order('Foundation Cream', '$12')">Dalbo</button>
         </div>
     </div>
     <div class="card">
         <img src="https://images.unsplash.com/photo-1522338223523-dcacaf132d93?w=300" alt="Perfume">
-        <div class="card-info">
-            <h4>Luxury Perfume</h4>
-            <span class="price">$50.00</span><br><br>
-            <button class="btn-order" onclick="sendOrder('Luxury Perfume', '$50')">Dalbo Hadda</button>
+        <div class="card-body">
+            <h4>Udugga (Perfume)</h4>
+            <span class="price">$45.00</span>
+            <button class="btn-buy" onclick="order('Perfume', '$45')">Dalbo</button>
+        </div>
+    </div>
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1594465919760-442ee4d0fb31?w=300" alt="Lipstick">
+        <div class="card-body">
+            <h4>Lipstick Set</h4>
+            <span class="price">$8.50</span>
+            <button class="btn-buy" onclick="order('Lipstick Set', '$8.50')">Dalbo</button>
+        </div>
+    </div>
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1515688594390-b649af70d282?w=300" alt="Eye Shadow">
+        <div class="card-body">
+            <h4>Eye Shadow Palette</h4>
+            <span class="price">$15.00</span>
+            <button class="btn-buy" onclick="order('Eye Shadow', '$15')">Dalbo</button>
         </div>
     </div>
 </div>
 
-<div class="reviews">
-    <h3>Rayiga Macaamiisha (Reviews)</h3>
-    <div id="review-list">
-        <div class="review-item">
-            <strong>Nasra Abdi:</strong> "Aad baan ugu qancay alaabta Bahjo, aad bay u tayaysan tahay!"
-        </div>
-        <div class="review-item">
-            <strong>Fartuun K.:</strong> "Udugga aan ka iibsaday dukaanka Calanley waa kii ugu fiicnaa."
-        </div>
-    </div>
+<div class="map-container">
+    <h3>📍 Goobta: Xeebta Calanley, Kismaayo</h3>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15959.049448962!2d42.5381!3d-0.3582!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMMKwMjEnMjkuNSJTIDQywrAzMicyNy40IkU!5e0!3m2!1sen!2sso!4v1704100000000" allowfullscreen="" loading="lazy"></iframe>
 </div>
 
-<div style="padding: 20px;">
-    <h3>📍 Goobtayada: Calanley, Kismaayo</h3>
-    <iframe class="map-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15951.6!2d42.54!3d-0.35!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMMKwMjEnMDAuMCJTIDQywrAzMicwMC4wIkU!5e0!3m2!1sen!2sso!4v1700000000000"></iframe>
-</div>
-
-<footer style="text-align: center; padding: 20px; background: #333; color: white;">
-    <p>Bahjo Mahad Bisle © 2026</p>
+<footer style="text-align: center; padding: 40px; background: #333; color: white;">
+    <p>Halkaan kala xiriir Bahjo Mahad Bisle</p>
+    <h2>+252 61 7799545</h2>
 </footer>
 
-<a
+<a href="https://wa.me/252617799545?text=Asc%20Bahjo%20waxaan%20rabaa%20macluumaad" class="whatsapp-float" target="_blank">
+    <i>W</i>
+</a>
+
+<script>
+    function order(product, price) {
+        let msg = `Asc Bahjo, waxaan rabaa inaan dalbado: ${product} oo qiimihiisu yahay ${price}.`;
+        window.open(`https://wa.me/252617799545?text=${encodeURIComponent(msg)}`);
+    }
+
+    function generatePDF() {
+        alert("Liiska Qiimaha (PDF) hadda waa kuu diyaar... Waxaa ku jira Foundation ($12), Perfume ($45), Lipstick ($8.50).");
+        // Halkan waxaa lagu dari karaa JS library sida jspdf si dhab ahaan loogu soo dejiyo.
+    }
+</script>
+
+</body>
+</html>
