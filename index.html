@@ -3,110 +3,188 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bahjo Cosmetics & Boutique | Kismaayo</title>
+    <title>Bahjo Cosmetics & Boutique | Luxury Experience</title>
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --main-pink: #e91e63; --gold-text: #b8860b; --soft-bg: #fff0f5; }
-        body { font-family: 'Poppins', sans-serif; margin: 0; background-color: var(--soft-bg); color: #333; }
-        
-        /* Header & Navigation */
-        header { background: #fff; padding: 20px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .logo-text { font-size: 28px; font-weight: bold; color: var(--main-pink); letter-spacing: 2px; }
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@300;400;600&display=swap');
 
-        /* Banner */
-        .banner { background: linear-gradient(45deg, #e91e63, #ff85a2); color: white; padding: 40px 20px; text-align: center; }
-        
-        /* Product Grid */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 15px; padding: 20px; }
-        .card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: 0.3s; }
-        .card:hover { transform: translateY(-5px); }
-        .card img { width: 100%; height: 150px; object-fit: cover; }
-        .card-body { padding: 12px; text-align: center; }
-        .price { color: var(--main-pink); font-weight: bold; font-size: 18px; display: block; margin: 5px 0; }
-        
-        .btn-buy { background: var(--main-pink); color: white; border: none; padding: 10px; width: 100%; border-radius: 8px; cursor: pointer; font-weight: bold; }
-        .btn-pdf { background: #333; color: gold; padding: 15px 25px; text-decoration: none; border-radius: 30px; display: inline-block; margin: 20px; font-weight: bold; }
+        :root {
+            --gold: #d4af37;
+            --rose-gold: #b76e79;
+            --pink: #ff2d78;
+            --dark: #121212;
+            --white: #ffffff;
+        }
 
-        /* Location Map */
-        .map-container { padding: 20px; text-align: center; }
-        iframe { width: 100%; height: 300px; border-radius: 15px; border: 2px solid var(--main-pink); }
+        body { font-family: 'Poppins', sans-serif; margin: 0; background: #fdfafb; color: var(--dark); overflow-x: hidden; }
 
-        /* Floating WhatsApp */
-        .whatsapp-float { position: fixed; bottom: 20px; right: 20px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 2px 2px 10px rgba(0,0,0,0.2); z-index: 1000; text-decoration: none; }
+        /* Animation for Entrance */
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Luxury Header */
+        header { background: var(--white); padding: 25px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-bottom: 2px solid var(--rose-gold); position: sticky; top: 0; z-index: 1000; }
+        .logo { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: bold; color: var(--dark); letter-spacing: 3px; }
+        .logo span { color: var(--pink); }
+
+        /* Countdown Timer Section */
+        .countdown-bar { background: var(--dark); color: var(--gold); padding: 10px; text-align: center; font-weight: bold; font-size: 14px; letter-spacing: 1px; }
+
+        /* Digital Business Card (The Showstopper) */
+        .biz-card-container { padding: 20px; animation: fadeIn 1s ease-out; }
+        .luxury-card { 
+            background: linear-gradient(135deg, #1a1a1a 0%, #3a3a3a 100%); 
+            color: white; border-radius: 25px; padding: 30px; position: relative;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2); border: 1px solid rgba(212, 175, 55, 0.3);
+            text-align: left; overflow: hidden;
+        }
+        .luxury-card::after { content: ''; position: absolute; top: -50%; right: -50%; width: 100%; height: 100%; background: rgba(255,255,255,0.05); transform: rotate(45deg); }
+        .luxury-card h2 { margin: 0; font-family: 'Playfair Display', serif; color: var(--gold); }
+        .luxury-card p { margin: 5px 0; opacity: 0.8; }
+        .qr-area { float: right; background: white; padding: 8px; border-radius: 12px; }
+
+        /* Product Gallery */
+        .section-title { text-align: center; font-family: 'Playfair Display', serif; font-size: 28px; margin: 40px 0 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 20px; padding: 20px; }
+        .product-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.05); transition: 0.4s; position: relative; }
+        .product-card:hover { transform: scale(1.03); }
+        .product-card img { width: 100%; height: 180px; object-fit: cover; }
+        .badge { position: absolute; top: 10px; left: 10px; background: var(--pink); color: white; padding: 5px 10px; border-radius: 20px; font-size: 12px; font-weight: bold; }
+        .product-info { padding: 15px; text-align: center; }
+        .product-info h4 { margin: 10px 0 5px; font-size: 16px; }
+        .price { color: var(--rose-gold); font-weight: bold; font-size: 18px; display: block; margin-bottom: 10px; }
+        .btn-order { background: var(--dark); color: white; border: none; padding: 12px; width: 100%; border-radius: 12px; cursor: pointer; font-weight: 600; transition: 0.3s; }
+        .btn-order:hover { background: var(--pink); }
+
+        /* Reviews Section */
+        .reviews-scroll { display: flex; overflow-x: auto; padding: 20px; gap: 20px; scroll-snap-type: x mandatory; }
+        .review-card { min-width: 250px; background: white; padding: 20px; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); scroll-snap-align: start; }
+        .stars { color: var(--gold); margin-bottom: 10px; }
+
+        /* Map & Location */
+        .location-box { padding: 20px; margin: 20px; background: white; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        iframe { width: 100%; height: 250px; border-radius: 15px; border: none; }
+
+        /* Floating WhatsApp Bot */
+        .bot-btn { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); z-index: 1000; text-decoration: none; animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
+
+        footer { background: var(--dark); color: white; text-align: center; padding: 50px 20px; margin-top: 40px; }
     </style>
 </head>
 <body>
 
-<header>
-    <div class="logo-text">BAHJO COSMETICS</div>
-    <p style="color: var(--gold-text); margin: 0;">Quruxda Gabdhaha Calanley</p>
-</header>
+    <div class="countdown-bar" id="countdown">NEW YEAR SALE ENDS IN: 00:00:00</div>
 
-<div class="banner">
-    <h2>Dukaanka Bahjo Mahad Bisle</h2>
-    <p>Cosmetics, Boutique & Agabka Quruxda</p>
-    <a href="#" class="btn-pdf" onclick="generatePDF()">📥 Soo Degso Liiska Qiimaha (PDF)</a>
-</div>
+    <header>
+        <div class="logo">BAHJO <span>MAHAD</span></div>
+        <p style="margin: 5px 0 0; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: #888;">Cosmetics & Boutique • Kismaayo</p>
+    </header>
 
-<div class="grid" id="product-list">
-    <div class="card">
-        <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=300" alt="Cream">
-        <div class="card-body">
-            <h4>Foundation Cream</h4>
-            <span class="price">$12.00</span>
-            <button class="btn-buy" onclick="order('Foundation Cream', '$12')">Dalbo</button>
+    <div class="biz-card-container">
+        <div class="luxury-card">
+            <div class="qr-area" id="qrcode"></div>
+            <h2>Bahjo Mahad Bisle</h2>
+            <p><i class="fas fa-crown"></i> Founder & Creative Director</p>
+            <p><i class="fas fa-phone-alt"></i> +252 61 7799545</p>
+            <p><i class="fas fa-map-marker-alt"></i> Xeebta Calanley, Kismaayo</p>
+            <div style="margin-top: 15px;">
+                <span style="background: var(--gold); color: black; padding: 4px 12px; border-radius: 20px; font-size: 10px; font-weight: bold;">OFFICIAL PARTNER</span>
+            </div>
         </div>
     </div>
-    <div class="card">
-        <img src="https://images.unsplash.com/photo-1522338223523-dcacaf132d93?w=300" alt="Perfume">
-        <div class="card-body">
-            <h4>Udugga (Perfume)</h4>
-            <span class="price">$45.00</span>
-            <button class="btn-buy" onclick="order('Perfume', '$45')">Dalbo</button>
+
+    <h2 class="section-title">New Arrivals</h2>
+    <div class="grid">
+        <div class="product-card">
+            <div class="badge">HOT</div>
+            <img src="https://images.unsplash.com/photo-1522338223523-dcacaf132d93?w=400" alt="Fragrance">
+            <div class="product-info">
+                <h4>Oud Al-Fakhama</h4>
+                <span class="price">$45.00</span>
+                <button class="btn-order" onclick="dalbo('Oud Al-Fakhama', '$45')">Order via WhatsApp</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1596462502278-27bfdc4033c8?w=400" alt="Makeup">
+            <div class="product-info">
+                <h4>Bridal Glow Kit</h4>
+                <span class="price">$30.00</span>
+                <button class="btn-order" onclick="dalbo('Bridal Glow Kit', '$30')">Order via WhatsApp</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <div class="badge">SALE</div>
+            <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=400" alt="Skin">
+            <div class="product-info">
+                <h4>Organic Serum</h4>
+                <span class="price">$20.00</span>
+                <button class="btn-order" onclick="dalbo('Organic Serum', '$20')">Order via WhatsApp</button>
+            </div>
         </div>
     </div>
-    <div class="card">
-        <img src="https://images.unsplash.com/photo-1594465919760-442ee4d0fb31?w=300" alt="Lipstick">
-        <div class="card-body">
-            <h4>Lipstick Set</h4>
-            <span class="price">$8.50</span>
-            <button class="btn-buy" onclick="order('Lipstick Set', '$8.50')">Dalbo</button>
+
+    <h2 class="section-title">Customer Love</h2>
+    <div class="reviews-scroll">
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>"Adeeg hufan iyo alaab tayo leh. Kismaayo dhexdeeda Bahjo ayaa u horeysa!"</p>
+            <strong>- Zamzam Ali</strong>
+        </div>
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>"Cadarkooda wuu udug badan yahay, muddo badan ayuuna kugu harayaa."</p>
+            <strong>- Hodan Muse</strong>
         </div>
     </div>
-    <div class="card">
-        <img src="https://images.unsplash.com/photo-1515688594390-b649af70d282?w=300" alt="Eye Shadow">
-        <div class="card-body">
-            <h4>Eye Shadow Palette</h4>
-            <span class="price">$15.00</span>
-            <button class="btn-buy" onclick="order('Eye Shadow', '$15')">Dalbo</button>
-        </div>
+
+    <div class="location-box">
+        <h3><i class="fas fa-store"></i> Visit Our Boutique</h3>
+        <p>Ku soo dhowoow dukaanka weyn ee Xeebta Calanley, Kismaayo.</p>
+        <iframe src="http://googleusercontent.com/maps.google.com/3"></iframe>
     </div>
-</div>
 
-<div class="map-container">
-    <h3>📍 Goobta: Xeebta Calanley, Kismaayo</h3>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15959.049448962!2d42.5381!3d-0.3582!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMMKwMjEnMjkuNSJTIDQywrAzMicyNy40IkU!5e0!3m2!1sen!2sso!4v1704100000000" allowfullscreen="" loading="lazy"></iframe>
-</div>
+    <footer>
+        <h2 style="font-family: 'Playfair Display', serif;">Bahjo Mahad Bisle</h2>
+        <p>Premium Cosmetics & Exclusive Boutique</p>
+        <div style="font-size: 24px; margin: 20px 0;">
+            <i class="fab fa-instagram"></i> &nbsp; <i class="fab fa-tiktok"></i> &nbsp; <i class="fab fa-facebook"></i>
+        </div>
+        <p style="font-size: 10px; opacity: 0.5;">© 2026 Crafted by Kooshin Yare</p>
+    </footer>
 
-<footer style="text-align: center; padding: 40px; background: #333; color: white;">
-    <p>Halkaan kala xiriir Bahjo Mahad Bisle</p>
-    <h2>+252 61 7799545</h2>
-</footer>
+    <a href="#" class="bot-btn" onclick="startBot()"><i class="fab fa-whatsapp"></i></a>
 
-<a href="https://wa.me/252617799545?text=Asc%20Bahjo%20waxaan%20rabaa%20macluumaad" class="whatsapp-float" target="_blank">
-    <i>W</i>
-</a>
+    <script>
+        // QR Code
+        new QRCode(document.getElementById("qrcode"), {
+            text: window.location.href,
+            width: 80, height: 80,
+            colorDark : "#000000", colorLight : "#ffffff"
+        });
 
-<script>
-    function order(product, price) {
-        let msg = `Asc Bahjo, waxaan rabaa inaan dalbado: ${product} oo qiimihiisu yahay ${price}.`;
-        window.open(`https://wa.me/252617799545?text=${encodeURIComponent(msg)}`);
-    }
+        // Simple Chatbot Greeting
+        function startBot() {
+            let msg = "Asc Bahjo! Waxaan rabaa inaan arko liiska alaabta cusub iyo qiimaha.";
+            window.open(`https://wa.me/252617799545?text=${encodeURIComponent(msg)}`);
+        }
 
-    function generatePDF() {
-        alert("Liiska Qiimaha (PDF) hadda waa kuu diyaar... Waxaa ku jira Foundation ($12), Perfume ($45), Lipstick ($8.50).");
-        // Halkan waxaa lagu dari karaa JS library sida jspdf si dhab ahaan loogu soo dejiyo.
-    }
-</script>
+        // Ordering System
+        function dalbo(magaca, qiimaha) {
+            let order = `Asc Bahjo, waxaan rabaa inaan dalbado: ${magaca} (${qiimaha}). Fadlan ii diyaari.`;
+            window.open(`https://wa.me/252617799545?text=${encodeURIComponent(order)}`);
+        }
 
+        // Countdown Timer for Sale
+        let countdownDate = new Date().getTime() + (24 * 60 * 60 * 1000); // 24 hours from now
+        setInterval(function() {
+            let now = new Date().getTime();
+            let distance = countdownDate - now;
+            let h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            let m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            let s = Math.floor((distance % (1000 * 60)) / 1000);
+            document.getElementById("countdown").innerHTML = `NEW YEAR SALE ENDS IN: ${h}h ${m}m ${s}s`;
+        }, 1000);
+    </script>
 </body>
 </html>
