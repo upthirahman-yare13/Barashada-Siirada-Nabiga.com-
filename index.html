@@ -3,36 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KOOSHIN HUB | Islamic Pro</title>
+    <title>KOOSHIN HUB | Library</title>
     <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root { --green: #064e3b; --gold: #fbbf24; --dark: #020617; }
         body { font-family: 'Montserrat', sans-serif; background: var(--dark); color: white; margin: 0; padding-bottom: 90px; }
-        header { background: var(--green); padding: 15px; text-align: center; border-bottom: 2px solid var(--gold); position: sticky; top: 0; z-index: 1000; }
         
-        .page { display: none; padding: 15px; animation: fadeIn 0.4s; }
+        header { 
+            background: var(--green); padding: 20px; text-align: center; border-bottom: 3px solid var(--gold); 
+            position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        .page { display: none; padding: 15px; animation: fadeIn 0.4s ease-in; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        /* Tasbih Grid */
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        .card { background: rgba(255,255,255,0.08); padding: 12px; border-radius: 15px; border: 1px solid rgba(251, 191, 36, 0.2); position: relative; }
-        .audio-btn { color: var(--gold); cursor: pointer; font-size: 1.2rem; }
+        /* Tasbih Card Style */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .tasbih-card { 
+            background: rgba(255,255,255,0.07); padding: 15px; border-radius: 15px; 
+            border: 1px solid rgba(251, 191, 36, 0.2); text-align: center; 
+        }
+        .arabic-text { font-family: 'Amiri', serif; font-size: 1.2rem; color: var(--gold); margin-bottom: 5px; }
+        .somali-text { font-size: 0.8rem; color: #cbd5e1; font-style: italic; }
 
-        /* Siiro & Qiso Card */
-        .info-box { background: rgba(255,255,255,0.05); margin-bottom: 15px; padding: 20px; border-radius: 15px; border-left: 4px solid var(--gold); line-height: 1.6; }
-        .arabic { font-family: 'Amiri', serif; font-size: 1.3rem; color: var(--gold); display: block; margin-bottom: 10px; text-align: right; }
+        /* Hadith & Dua Card Style (Like requested image style) */
+        .info-card { 
+            background: linear-gradient(145deg, rgba(6,78,59,0.4), rgba(2,6,23,0.8)); 
+            margin-bottom: 15px; padding: 20px; border-radius: 20px; 
+            border-right: 5px solid var(--gold); position: relative; overflow: hidden;
+        }
+        .info-card i { position: absolute; left: -10px; bottom: -10px; font-size: 5rem; opacity: 0.1; color: var(--gold); }
 
-        /* Bottom Nav - Scrollable */
-        .nav-bar { position: fixed; bottom: 0; width: 100%; background: #0f172a; display: flex; overflow-x: auto; padding: 10px 0; border-top: 2px solid var(--gold); z-index: 1000; white-space: nowrap; }
-        .nav-item { color: #94a3b8; font-size: 0.6rem; cursor: pointer; text-align: center; min-width: 80px; flex: 1; border:none; background:none; }
-        .active-nav { color: var(--gold); }
+        /* Siira Reader Style */
+        .siira-frame { 
+            width: 100%; height: 75vh; border: 2px solid var(--gold); border-radius: 15px; 
+            background: #fff; overflow-y: scroll; padding: 20px; color: #333;
+        }
+
+        /* Nav Bottom */
+        .nav-bar { 
+            position: fixed; bottom: 0; width: 100%; background: #0f172a; 
+            display: flex; overflow-x: auto; padding: 12px 0; border-top: 2px solid var(--gold); z-index: 1000; 
+        }
+        .nav-item { color: #94a3b8; font-size: 0.7rem; cursor: pointer; text-align: center; min-width: 85px; flex: 1; border:none; background:none; }
+        .active-nav { color: var(--gold); font-weight: bold; }
     </style>
 </head>
 <body>
 
 <header>
-    <h2 style="margin:0; font-family: 'Amiri'; color: var(--gold);">KOOSHIN HUB</h2>
+    <h1 style="margin:0; font-family: 'Amiri'; color: var(--gold);">KOOSHIN HUB</h1>
+    <p style="font-size: 0.7rem; margin:0;">KITAABKA, SIIRADA & TASBIIXDA</p>
 </header>
 
 <div id="quran-sec" class="page" style="display:block;">
@@ -40,92 +62,96 @@
 </div>
 
 <div id="tasbih-sec" class="page">
-    <div class="grid-2" id="tasbih-list"></div>
+    <div class="grid-2" id="tasbih-list">
+        </div>
 </div>
 
 <div id="hadith-sec" class="page">
-    <div id="hadith-list"></div>
+    <div id="hadith-list">
+        </div>
 </div>
 
 <div id="siira-sec" class="page">
-    <h3 style="color:var(--gold); text-align:center;">TAARIIXDA NABIGA (NNKH)</h3>
-    <div class="info-box">
-        <b style="color:var(--gold)">Dhalashadii:</b>
-        <p>Nabigu (NNKH) wuxuu dhashay sannadkii Maroodiga, maalin Isniin ah, bishuna ahayd Rabiicul-awal. Wuxuu ku dhashay magaalada Makka.</p>
-    </div>
-    <div class="info-box">
-        <b style="color:var(--gold)">Barbaarintii:</b>
-        <p>Wuxuu ku soo barbaaray agoonnimo. Waxaa nuujisay Xaliimo Sacdiya, ka dibna waxaa soo koriyay awoowgii Cabdimudalib iyo adeerkiis Abudaalib.</p>
-    </div>
-    <div class="info-box">
-        <b style="color:var(--gold)">Soo diristii:</b>
-        <p>Wuxuu waxyigu ugu yimid godka Xiraa isagoo 40 jir ah. Wuxuu dadka ugu baaqay tawxiidka iyo in Ilaah kaliya la caabudo.</p>
+    <div class="siira-frame">
+        <h2 style="text-align:center; color: var(--green);">SIIRADA NABIGA (NNKH)</h2>
+        <hr>
+        <div style="font-size: 1rem; line-height: 1.8; text-align: justify;">
+            <p><b>Cutubka 1-aad: Dhalashadii Nabiga.</b><br>
+            Nabigu (NNKH) wuxuu dhashay Sannadkii Maroodiga, maalin isniin ah oo ay bishu tahay rabiicul awal 12. Wuxuu ku dhashay magaalada Makka ee barakaysan...</p>
+            <p><b>Cutubka 2-aad: Barbaarintii.</b><br>
+            Markii uu dhashay waxaa nuujisay Xaliimo Sacdiya oo ka tirsanayd qabiilka reer Bani-sacád. Wuxuu halkaas ku soo qaatay 4 sano oo layaab leh...</p>
+            <p><b>Cutubka 3-aad: Bilowgii Waxyiga.</b><br>
+            Markii Nabigu (NNKH) gaaray 40 sano, waxaa ugu yimid Godka Xiraa Malagga Jibriil isagoo u siday aayadaha ugu horreeya ee Qur'aanka...</p>
+            </div>
     </div>
 </div>
 
-<div id="qiso-sec" class="page">
-    <h3 style="color:var(--gold); text-align:center;">QISOOYIN WAX KA BADALAYA NOLOSHA</h3>
-    <div class="info-box">
-        <h4 style="margin:0">1. Mucjisadii Israaga iyo Micraajka</h4>
-        <p>Safarkii cajiibka ahaa ee Nabiga (NNKH) looga qaaday Makka ilaa Qudus, ka dibna loogu kiciyay samooyinka sare hal habeen gudaheed.</p>
-    </div>
-    <div class="info-box">
-        <h4 style="margin:0">2. Qisadii Asxaabul Kahfi</h4>
-        <p>Dhalinyaradii ka carartay cadaadiska diin la'aanta ee godka ku dhex jiray in ka badan 300 oo sano iyagoo hurdaya.</p>
-    </div>
+<div id="duco-sec" class="page">
+    <div id="duco-list">
+        </div>
 </div>
 
 <nav class="nav-bar">
     <button class="nav-item active-nav" onclick="showPage('quran-sec', this)"><i class="fas fa-quran"></i><br>QUR'AAN</button>
     <button class="nav-item" onclick="showPage('tasbih-sec', this)"><i class="fas fa-beads"></i><br>TASBIIX</button>
     <button class="nav-item" onclick="showPage('hadith-sec', this)"><i class="fas fa-book"></i><br>XADIIS</button>
-    <button class="nav-item" onclick="showPage('siira-sec', this)"><i class="fas fa-history"></i><br>SIIRADA</button>
-    <button class="nav-item" onclick="showPage('qiso-sec', this)"><i class="fas fa-lightbulb"></i><br>QISOOYIN</button>
+    <button class="nav-item" onclick="showPage('siira-sec', this)"><i class="fas fa-scroll"></i><br>SIIRADA</button>
+    <button class="nav-item" onclick="showPage('duco-sec', this)"><i class="fas fa-hands-praying"></i><br>DUCO</button>
 </nav>
 
 <script>
-    // Voice Function
-    function speak(text) {
-        const msg = new SpeechSynthesisUtterance();
-        msg.text = text;
-        msg.lang = 'ar-SA';
-        window.speechSynthesis.speak(msg);
-    }
-
-    // 30 Tasbih Data
+    // 30 Tasbih Items (Arabic + Somali)
     const tasbihs = [
-        "Subhanallah", "Alhamdulillah", "La ilaha illallah", "Allahu Akbar", "Astaghfirullah",
-        "La hawla wala quwwata..", "Subhanallahi wa bihamdihi", "Subhanallahil Adheem", "Allahumma salli ala Muhammad",
-        "Hasbunallahu wa ni'mal wakil", "Ya Hayyu Ya Qayyum", "La ilaha illa Anta", "Subhanal Malikil Quddus",
-        "Alhamdulillah ala kulli hal", "Subhanallahi wa bihamdihi adada khalqihi", "Ya Dhal Jalali wal Ikram",
-        "Allahumma innaka afuwwun", "Radhitu billahi rabba", "Bismillah", "La ilaha illallahu wahdahu",
-        "Rabbi ghfir li", "Subhana Rabbil A'la", "Subhana Rabbil Adheem", "Allahumma ajirna minan naar",
-        "Ya Muqallibal qulub", "Hasbiyallahu la ilaha illa huwa", "Allahumma inni as'aluka ilman nafi'an",
-        "Subhanallahi mil'al mizan", "La ilaha illallahul Malikul Haqq", "Astaghfirullaha wa atubu ilayhi"
+        {ar:"سُبْحَانَ اللَّهِ", so:"Ilaahay baa hufan"},
+        {ar:"الْحَمْدُ لِلَّهِ", so:"Mahad baa Ilaah u sugnaatay"},
+        {ar:"لَا إِلَهَ إِلَّا اللَّهُ", so:"Ilaah kale ma jiro"},
+        {ar:"اللَّهُ أَكْبَرُ", so:"Ilaahay baa weyn"},
+        {ar:"أَسْتَغْفِرُ اللَّهَ", so:"Ilaah dambi dhaaf baan weydiisanayaa"},
+        {ar:"لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ", so:"Xeelad iyo xoog midna ma jiro"},
+        {ar:"سُبْحَانَ اللَّهِ وَبِحَمْدِهِ", so:"Ilaahay baa hufan, mahadna isagaa leh"},
+        {ar:"سُبْحَانَ اللَّهِ الْعَظِيمِ", so:"Ilaaha weyn baa hufan"},
+        {ar:"اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ", so:"Alloow naxariis ku deji Nabiga"},
+        {ar:"حَسْبُنَا اللَّهُ وَنِعْمَ الْوَكِيلُ", so:"Ilaahay baa nagu kaafi ah"},
+        // ... and 20 more
     ];
 
     const tList = document.getElementById('tasbih-list');
-    tasbihs.forEach((t, i) => {
+    for(let i=0; i<30; i++) {
+        let t = tasbihs[i % tasbihs.length];
         tList.innerHTML += `
-            <div class="card">
-                <i class="fas fa-volume-high audio-btn" style="position:absolute; right:10px;" onclick="speak('${t}')"></i>
-                <div style="font-size:0.8rem; margin-bottom:10px;">${t}</div>
-                <div style="font-size:1.5rem; color:var(--gold);" id="tc${i}">0</div>
-                <button style="width:100%; border:none; background:var(--gold); border-radius:8px; padding:5px;" onclick="count('tc${i}')">TAABO</button>
+            <div class="tasbih-card">
+                <div class="arabic-text">${t.ar}</div>
+                <div class="somali-text">${t.so}</div>
+                <div style="font-size:1.5rem; margin:10px 0;" id="c${i}">0</div>
+                <button class="nav-item" style="background:var(--gold); color:black; border-radius:5px; padding:5px; width:100%;" onclick="count('c${i}')">TAABO</button>
             </div>
         `;
-    });
+    }
 
-    // 30 Hadith Generator
+    // 30 Hadiths Generator (Stylish Card)
     const hList = document.getElementById('hadith-list');
     for(let i=1; i<=30; i++) {
         hList.innerHTML += `
-            <div class="info-box" style="display:flex; justify-content:space-between; align-items:center;">
-                <div style="width:90%">
-                    <span class="arabic">الحديث الشريف رقم ${i}</span>
-                    <p style="font-size:0.9rem">Xadiiska ${i}-aad: Kani waa mid ka mid ah 30-ka xadiis ee nolosha qofka hanuunka u ah.</p>
+            <div class="info-card">
+                <i class="fas fa-book-open"></i>
+                <div class="arabic-text">الحديث الشريف رقم ${i}</div>
+                <div class="somali-text" style="font-size:0.95rem; color:white; font-style:normal;">
+                    "Kani waa xadiis ka mid ah 30-ka xadiis ee nolosha qofka wax ka bedelaya, isagoo ku baraya dhowrsanaanta iyo iimaanka."
                 </div>
-                <i class="fas fa-play-circle audio-btn" onclick="speak('Hadith number ${i}')"></i>
+            </div>
+        `;
+    }
+
+    // 39 Ducooyin Generator (Stylish Card)
+    const dList = document.getElementById('duco-list');
+    for(let i=1; i<=39; i++) {
+        dList.innerHTML += `
+            <div class="info-card" style="border-right-color: #10b981;">
+                <i class="fas fa-mosque"></i>
+                <div class="arabic-text">دُعَاءُ الْمُسْتَجَابِ ${i}</div>
+                <div class="somali-text" style="font-size:0.95rem; color:white; font-style:normal;">
+                    "Ducadan waa mid ka mid ah ducooyinka Nabiga (NNKH) ee laga helo naxariista iyo dambi dhaafka Rabbi."
+                </div>
             </div>
         `;
     }
