@@ -3,32 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KOOSHIN HUB | Pro Voice</title>
+    <title>KOOSHIN HUB | Islamic Pro</title>
     <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root { --green: #064e3b; --gold: #fbbf24; --dark: #020617; }
-        body { font-family: 'Montserrat', sans-serif; background: var(--dark); color: white; margin: 0; padding-bottom: 110px; }
+        body { font-family: 'Montserrat', sans-serif; background: var(--dark); color: white; margin: 0; padding-bottom: 90px; }
+        header { background: var(--green); padding: 15px; text-align: center; border-bottom: 2px solid var(--gold); position: sticky; top: 0; z-index: 1000; }
         
-        header { background: var(--green); padding: 15px; text-align: center; border-bottom: 3px solid var(--gold); position: sticky; top: 0; z-index: 1000; }
         .page { display: none; padding: 15px; animation: fadeIn 0.4s; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        /* Tasbih & Cards */
+        /* Tasbih Grid */
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        .card { background: rgba(255,255,255,0.1); padding: 12px; border-radius: 15px; border: 1px solid rgba(251, 191, 36, 0.2); position: relative; }
-        .voice-btn { position: absolute; top: 5px; right: 5px; color: var(--gold); cursor: pointer; padding: 5px; }
-        
-        .arabic { font-family: 'Amiri', serif; font-size: 1.2rem; color: var(--gold); text-align: right; }
-        .somali { font-size: 0.8rem; color: #cbd5e1; text-align: left; margin: 5px 0; }
-        
-        /* Routine Styling */
-        .routine-card { background: linear-gradient(135deg, #064e3b, #020617); padding: 20px; border-radius: 20px; border: 2px solid var(--gold); margin-bottom: 20px; }
-        .task-row { display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.05); padding: 12px; margin-bottom: 8px; border-radius: 10px; }
+        .card { background: rgba(255,255,255,0.08); padding: 12px; border-radius: 15px; border: 1px solid rgba(251, 191, 36, 0.2); position: relative; }
+        .audio-btn { color: var(--gold); cursor: pointer; font-size: 1.2rem; }
 
-        /* Navigation */
-        .nav-bar { position: fixed; bottom: 0; width: 100%; background: #0f172a; display: flex; overflow-x: auto; padding: 10px 0; border-top: 2px solid var(--gold); z-index: 1000; }
-        .nav-item { color: #94a3b8; font-size: 0.6rem; cursor: pointer; text-align: center; min-width: 70px; flex: 1; border:none; background:none; }
+        /* Siiro & Qiso Card */
+        .info-box { background: rgba(255,255,255,0.05); margin-bottom: 15px; padding: 20px; border-radius: 15px; border-left: 4px solid var(--gold); line-height: 1.6; }
+        .arabic { font-family: 'Amiri', serif; font-size: 1.3rem; color: var(--gold); display: block; margin-bottom: 10px; text-align: right; }
+
+        /* Bottom Nav - Scrollable */
+        .nav-bar { position: fixed; bottom: 0; width: 100%; background: #0f172a; display: flex; overflow-x: auto; padding: 10px 0; border-top: 2px solid var(--gold); z-index: 1000; white-space: nowrap; }
+        .nav-item { color: #94a3b8; font-size: 0.6rem; cursor: pointer; text-align: center; min-width: 80px; flex: 1; border:none; background:none; }
         .active-nav { color: var(--gold); }
     </style>
 </head>
@@ -39,120 +36,103 @@
 </header>
 
 <div id="quran-sec" class="page" style="display:block;">
-    <iframe style="width:100%; height:78vh; border:none; background:white; border-radius:15px;" src="https://quran.com?translations=55"></iframe>
+    <iframe style="width:100%; height:78vh; border:none; border-radius:15px;" src="https://quran.com?translations=55"></iframe>
 </div>
 
 <div id="tasbih-sec" class="page">
     <div class="grid-2" id="tasbih-list"></div>
 </div>
 
-<div id="duco-sec" class="page">
-    <div id="duco-list"></div>
-</div>
-
-<div id="routine-sec" class="page">
-    <div class="routine-card">
-        <h3><i class="fas fa-star"></i> Guusha Maanta</h3>
-        <div style="font-size: 2.5rem; color: var(--gold); font-weight: bold;" id="p-text">0%</div>
-        <div style="background:rgba(255,255,255,0.1); height:12px; border-radius:10px; overflow:hidden; margin-top:10px;">
-            <div id="p-bar" style="background:var(--gold); width:0%; height:100%; transition:0.5s;"></div>
-        </div>
-    </div>
-    <div id="routine-tasks">
-        </div>
-</div>
-
 <div id="hadith-sec" class="page">
     <div id="hadith-list"></div>
+</div>
+
+<div id="siira-sec" class="page">
+    <h3 style="color:var(--gold); text-align:center;">TAARIIXDA NABIGA (NNKH)</h3>
+    <div class="info-box">
+        <b style="color:var(--gold)">Dhalashadii:</b>
+        <p>Nabigu (NNKH) wuxuu dhashay sannadkii Maroodiga, maalin Isniin ah, bishuna ahayd Rabiicul-awal. Wuxuu ku dhashay magaalada Makka.</p>
+    </div>
+    <div class="info-box">
+        <b style="color:var(--gold)">Barbaarintii:</b>
+        <p>Wuxuu ku soo barbaaray agoonnimo. Waxaa nuujisay Xaliimo Sacdiya, ka dibna waxaa soo koriyay awoowgii Cabdimudalib iyo adeerkiis Abudaalib.</p>
+    </div>
+    <div class="info-box">
+        <b style="color:var(--gold)">Soo diristii:</b>
+        <p>Wuxuu waxyigu ugu yimid godka Xiraa isagoo 40 jir ah. Wuxuu dadka ugu baaqay tawxiidka iyo in Ilaah kaliya la caabudo.</p>
+    </div>
+</div>
+
+<div id="qiso-sec" class="page">
+    <h3 style="color:var(--gold); text-align:center;">QISOOYIN WAX KA BADALAYA NOLOSHA</h3>
+    <div class="info-box">
+        <h4 style="margin:0">1. Mucjisadii Israaga iyo Micraajka</h4>
+        <p>Safarkii cajiibka ahaa ee Nabiga (NNKH) looga qaaday Makka ilaa Qudus, ka dibna loogu kiciyay samooyinka sare hal habeen gudaheed.</p>
+    </div>
+    <div class="info-box">
+        <h4 style="margin:0">2. Qisadii Asxaabul Kahfi</h4>
+        <p>Dhalinyaradii ka carartay cadaadiska diin la'aanta ee godka ku dhex jiray in ka badan 300 oo sano iyagoo hurdaya.</p>
+    </div>
 </div>
 
 <nav class="nav-bar">
     <button class="nav-item active-nav" onclick="showPage('quran-sec', this)"><i class="fas fa-quran"></i><br>QUR'AAN</button>
     <button class="nav-item" onclick="showPage('tasbih-sec', this)"><i class="fas fa-beads"></i><br>TASBIIX</button>
-    <button class="nav-item" onclick="showPage('duco-sec', this)"><i class="fas fa-hands-praying"></i><br>DUCO</button>
-    <button class="nav-item" onclick="showPage('routine-sec', this)"><i class="fas fa-chart-line"></i><br>ROUTINE</button>
-    <button class="nav-item" onclick="showPage('hadith-sec', this)"><i class="fas fa-mosque"></i><br>XADIIS</button>
+    <button class="nav-item" onclick="showPage('hadith-sec', this)"><i class="fas fa-book"></i><br>XADIIS</button>
+    <button class="nav-item" onclick="showPage('siira-sec', this)"><i class="fas fa-history"></i><br>SIIRADA</button>
+    <button class="nav-item" onclick="showPage('qiso-sec', this)"><i class="fas fa-lightbulb"></i><br>QISOOYIN</button>
 </nav>
 
 <script>
-    // Audio Function
-    function speak(text, lang = 'ar-SA') {
+    // Voice Function
+    function speak(text) {
         const msg = new SpeechSynthesisUtterance();
         msg.text = text;
-        msg.lang = lang;
+        msg.lang = 'ar-SA';
         window.speechSynthesis.speak(msg);
     }
 
-    // TASBIIX 30 ITEMS
+    // 30 Tasbih Data
     const tasbihs = [
-        {ar: "سُبْحَانَ اللَّهِ", so: "Ilaahay baa hufan"},
-        {ar: "الْحَمْدُ لِلَّهِ", so: "Mahad baa Ilaah u sugnaatay"},
-        {ar: "لَا إِلَهَ إِلَّا اللَّهُ", so: "Ilaah kale ma jiro xaq lagu caabudo"},
-        {ar: "اللَّهُ أَكْبَرُ", so: "Ilaahay baa weyn"},
-        {ar: "أَسْتَغْفِرُ اللَّهَ", so: "Ilaahay dambi dhaaf baan weydiisanayaa"}
-        // ... (Waa laga sii badinayaa ilaa 30)
+        "Subhanallah", "Alhamdulillah", "La ilaha illallah", "Allahu Akbar", "Astaghfirullah",
+        "La hawla wala quwwata..", "Subhanallahi wa bihamdihi", "Subhanallahil Adheem", "Allahumma salli ala Muhammad",
+        "Hasbunallahu wa ni'mal wakil", "Ya Hayyu Ya Qayyum", "La ilaha illa Anta", "Subhanal Malikil Quddus",
+        "Alhamdulillah ala kulli hal", "Subhanallahi wa bihamdihi adada khalqihi", "Ya Dhal Jalali wal Ikram",
+        "Allahumma innaka afuwwun", "Radhitu billahi rabba", "Bismillah", "La ilaha illallahu wahdahu",
+        "Rabbi ghfir li", "Subhana Rabbil A'la", "Subhana Rabbil Adheem", "Allahumma ajirna minan naar",
+        "Ya Muqallibal qulub", "Hasbiyallahu la ilaha illa huwa", "Allahumma inni as'aluka ilman nafi'an",
+        "Subhanallahi mil'al mizan", "La ilaha illallahul Malikul Haqq", "Astaghfirullaha wa atubu ilayhi"
     ];
 
     const tList = document.getElementById('tasbih-list');
-    for(let i=0; i<30; i++) {
-        const item = tasbihs[i] || tasbihs[0];
+    tasbihs.forEach((t, i) => {
         tList.innerHTML += `
             <div class="card">
-                <i class="fas fa-volume-up voice-btn" onclick="speak('${item.ar}')"></i>
-                <div class="arabic">${item.ar}</div>
-                <div class="somali">${item.so}</div>
+                <i class="fas fa-volume-high audio-btn" style="position:absolute; right:10px;" onclick="speak('${t}')"></i>
+                <div style="font-size:0.8rem; margin-bottom:10px;">${t}</div>
                 <div style="font-size:1.5rem; color:var(--gold);" id="tc${i}">0</div>
-                <button style="width:100%; background:var(--gold); border:none; border-radius:5px;" onclick="count('tc${i}')">TAABO</button>
-            </div>
-        `;
-    }
-
-    // HADITH 30 ITEMS
-    const hList = document.getElementById('hadith-list');
-    for(let i=1; i<=30; i++) {
-        hList.innerHTML += `
-            <div class="card" style="margin-bottom:10px; text-align:right;">
-                <i class="fas fa-volume-up voice-btn" onclick="speak('Hadith number ${i}')"></i>
-                <div class="arabic">الْحَدِيثُ النَّبَوِيُّ ${i}</div>
-                <div class="somali" style="text-align:left;">Xadiiskan waa mid ka mid ah 30-ka xadiis ee doortha ah ee Af-Soomaaliga ku turjuman.</div>
-            </div>
-        `;
-    }
-
-    // DUCO 39 ITEMS
-    const dList = document.getElementById('duco-list');
-    for(let i=1; i<=39; i++) {
-        dList.innerHTML += `
-            <div class="card" style="margin-bottom:10px; border-left:4px solid var(--gold);">
-                <i class="fas fa-play-circle voice-btn" style="font-size:1.5rem;" onclick="speak('Dua number ${i}')"></i>
-                <div class="arabic">دُعَاءُ الْمُسْلِمِ ${i}</div>
-                <div class="somali">Ducadan waa mid aad u muhiim ah, waxaadna u akhrisan kartaa si fudud.</div>
-            </div>
-        `;
-    }
-
-    // ROUTINE TASKS
-    const tasks = ["Salaadda Subax", "Salaadda Duhur", "Salaadda Casir", "Salaadda Maqrib", "Salaadda Cisho", "Akhrinta Qur'aanka", "Adkaarta", "Waalidka u ducaynta"];
-    const rTasks = document.getElementById('routine-tasks');
-    tasks.forEach(t => {
-        rTasks.innerHTML += `
-            <div class="task-row">
-                <span>${t}</span>
-                <input type="checkbox" onchange="updateProgress()">
+                <button style="width:100%; border:none; background:var(--gold); border-radius:8px; padding:5px;" onclick="count('tc${i}')">TAABO</button>
             </div>
         `;
     });
 
-    function updateProgress() {
-        const checks = document.querySelectorAll('#routine-tasks input');
-        const checked = Array.from(checks).filter(c => c.checked).length;
-        const p = Math.round((checked/checks.length)*100);
-        document.getElementById('p-bar').style.width = p + "%";
-        document.getElementById('p-text').innerText = p + "%";
+    // 30 Hadith Generator
+    const hList = document.getElementById('hadith-list');
+    for(let i=1; i<=30; i++) {
+        hList.innerHTML += `
+            <div class="info-box" style="display:flex; justify-content:space-between; align-items:center;">
+                <div style="width:90%">
+                    <span class="arabic">الحديث الشريف رقم ${i}</span>
+                    <p style="font-size:0.9rem">Xadiiska ${i}-aad: Kani waa mid ka mid ah 30-ka xadiis ee nolosha qofka hanuunka u ah.</p>
+                </div>
+                <i class="fas fa-play-circle audio-btn" onclick="speak('Hadith number ${i}')"></i>
+            </div>
+        `;
     }
 
     function count(id) {
         document.getElementById(id).innerText = parseInt(document.getElementById(id).innerText) + 1;
+        if (navigator.vibrate) navigator.vibrate(40);
     }
 
     function showPage(id, btn) {
